@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet/less" type="text/css" href="../css/jump.less" />
+</head>
+<body>
+    <div class="wrapper">
+        <iframe class="content" id="iframeContent" name="iframeContent"  src="./tempItem1.html" frameborder="0"></iframe>
+        <!-- <object class="content" id="objContent" data="./tempItem2.html"></object> -->
+        <!-- <content class="content"></content> -->
+        <div class="operation">
+            <button class="custom-btn" id="changeBackground" >更换背景图</button>
+            <button class="custom-btn" onclick="changeIllustrations">更换插图</button>
+            <button class="custom-btn biggest" onclick="changeWords">修改文字</button>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    
+</style>
+
+<!-- 引入 less jquery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+<script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+        // 取参并转为json对象
+        const params = JSON.parse(localStorage.params);
+        console.log(params)
+
+        selectHtml(params.selectPage)
+       
+    })
+    
+
+    function selectHtml(selectPage){
+        console.log('正在选择html:第',selectPage,"页")
+        switch (selectPage){
+        case 1:
+            $('#iframeContent').attr('src','./tempItem1.html')  // 当表达式的结果等于 value1 时，则执行该代码
+            break;
+        case 2:
+            $('#iframeContent').attr('src','./tempItem2.html')  // 当表达式的结果等于 value1 时，则执行该代码
+            break;
+        
+        default :
+            $('#iframeContent').attr('src','./tempItem1.html')  // 如果没有与表达式相同的值，则执行该代码
+        }
+    }
+
+
+    $('#changeBackground').click (function() {
+        // 在父页面 获取iframe子页面的元素
+        // console.log($("#item1",document.frames('iframeContent').document))
+        console.log($("#iframeContent").contents().find("#item2"))
+        // $("#iframeContent").contents().find("#item2").attr('background','../../assets/images/bg-agr.png')
+    })
+</script>
