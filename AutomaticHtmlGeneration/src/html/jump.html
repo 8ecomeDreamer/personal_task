@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet/less" type="text/css" href="../css/jump.less" />
+    <!-- wangeditor -->
+    <link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
@@ -14,8 +16,13 @@
         <!-- <content class="content"></content> -->
         <div class="operation">
             <button class="custom-btn" id="changeBackground" >更换背景图</button>
-            <button class="custom-btn" onclick="changeIllustrations">更换插图</button>
-            <button class="custom-btn biggest" onclick="changeWords">修改文字</button>
+            <button class="custom-btn"  id="changeIllustrations">更换插图</button>
+            <button class="custom-btn biggest"  id="changeWords">修改文字</button>
+            
+        </div>
+        <div class="editorWrapper" id="editor—wrapper">
+            <div class="toolbarContainer" id="toolbar-container"><!-- 工具栏 --></div>
+            <div class="editor-container" id="editor-container"><!-- 编辑器 --></div>
         </div>
     </div>
 </body>
@@ -25,8 +32,10 @@
 </style>
 
 <!-- 引入 less jquery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+<!-- 引入 wangeditor  -->
+<script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
 
 <script>
 
@@ -36,7 +45,8 @@
         console.log(params)
 
         selectHtml(params.selectPage)
-       
+        // 显示编辑器
+        // loadWangEditor()
     })
     
 
@@ -50,16 +60,64 @@
             $('#iframeContent').attr('src','./tempItem2.html')  // 当表达式的结果等于 value1 时，则执行该代码
             break;
         
-        default :
+        default:
             $('#iframeContent').attr('src','./tempItem1.html')  // 如果没有与表达式相同的值，则执行该代码
         }
     }
 
-
+    // 更换背景图
     $('#changeBackground').click (function() {
         // 在父页面 获取iframe子页面的元素
         // console.log($("#item1",document.frames('iframeContent').document))
-        console.log($("#iframeContent").contents().find("#item2"))
-        // $("#iframeContent").contents().find("#item2").attr('background','../../assets/images/bg-agr.png')
+        // console.log($("#iframeContent").contents().find("#item"))
+        $("#iframeContent").contents().find("#item").css('background', "url('../../assets/images/bg-agr.png')") 
+
     })
+    // 更换插图
+    $('#changeIllustrations').click (function() {
+        // 在父页面 获取iframe子页面的元素
+        // console.log($("#item1",document.frames('iframeContent').document))
+        // console.log($("#iframeContent").contents().find("#item"))
+        $("#iframeContent").contents().find("#img_adx").attr('src', '../../assets/images/1.png') 
+
+    })
+    // 修改文字
+    $('#changeWords').click (function() {
+        // 在父页面 获取iframe子页面的元素
+        // console.log($("#item1",document.frames('iframeContent').document))
+        // console.log($("#iframeContent").contents().find("#item"))
+        $("#iframeContent").contents().find(".box_cd").css('color', 'red') 
+        
+
+    })
+
+
+    function loadWangEditor() {
+        const { createEditor, createToolbar } = window.wangEditor
+
+        const editorConfig = {
+            placeholder: 'Type here...',
+            onChange(editor) {
+            const html = editor.getHtml()
+            console.log('editor content', html)
+            // 也可以同步到 <textarea>
+            }
+        }
+
+        const editor = createEditor({
+            selector: '.editor-container',
+            html: '<p><br></p>',
+            config: editorConfig,
+            mode: 'default', // or 'simple'
+        })
+
+        const toolbarConfig = {}
+
+        const toolbar = createToolbar({
+            editor,
+            selector: '.toolbar-container',
+            config: toolbarConfig,
+            mode: 'default', // or 'simple'
+        })
+    }
 </script>

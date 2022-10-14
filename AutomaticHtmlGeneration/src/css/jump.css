@@ -207,3 +207,14 @@ body .wrapper .custom-btn {
 body .wrapper .custom-btn.biggest {
   height: 20%;
 }
+body .wrapper .editorWrapper {
+  border: 1px solid #ccc;
+  z-index: 100;
+  /* 按需定义 */
+}
+body .wrapper .editorWrapper .toolbarContainer {
+  border-bottom: 1px solid #ccc;
+}
+body .wrapper .editorWrapper .editor-container {
+  height: 500px;
+}
