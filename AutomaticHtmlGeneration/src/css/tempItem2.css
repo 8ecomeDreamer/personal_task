@@ -11,9 +11,6 @@
 .item .main .rows {
   width: 100%;
 }
-.item .main .leftIcon {
-  height: 10%;
-}
 .item .main .leftIcon img {
   top: 0.5em;
   left: 0.5em;

@@ -15,16 +15,38 @@
         <!-- <object class="content" id="objContent" data="./tempItem2.html"></object> -->
         <!-- <content class="content"></content> -->
         <div class="operation">
-            <button class="custom-btn" id="changeBackground" >更换背景图</button>
-            <button class="custom-btn"  id="changeIllustrations">更换插图</button>
-            <button class="custom-btn biggest"  id="changeWords">修改文字</button>
+            <div class="item">
+                <button class="truthBtn" id="changeBackgroundBtn">更换背景图</button>
+                <input id="changeBackground" type="file" accept="image/*,audio/*,video/*" class="btnInput" />
+            </div>
+            <!-- <button class="custom-btn" id="changeBackground" >更换背景图</button> -->
+            <!-- <button class="custom-btn"  id="changeIllustrations">更换插图</button> -->
+            <div class="item">
+                <button class="truthBtn" id="changeIllustrationsBtn">更换插图</button>
+                <input id="changeIllustrations" type="file" accept="image/*,audio/*,video/*" class="btnInput" />
+            </div>
+            <div class="item">
+                <button id="changeWords" class="truthBtn">修改文字</button>
+            </div>
+            <div class="item">
+                <button id="saveHtml" class="truthBtn">保存代码</button>
+            </div>
+           
+            
             
         </div>
+        
         <div class="editorWrapper" id="editor—wrapper">
             <div class="toolbarContainer" id="toolbar-container"><!-- 工具栏 --></div>
             <div class="editor-container" id="editor-container"><!-- 编辑器 --></div>
+            <div class="btnGroup">
+                <button class="cancel">取消</button>
+                <button class="confirm">确定</button>
+            </div>
         </div>
     </div>
+
+    
 </body>
 </html>
 <style>
@@ -46,9 +68,91 @@
 
         selectHtml(params.selectPage)
         // 显示编辑器
-        // loadWangEditor()
+        loadWangEditor()
     })
+  
+    // 更换背景图 点击按钮实际是点击input
+    $('#changeBackgroundBtn').click(function() {
+        $('#changeBackground').click()
+    })
+
+    $('#changeBackground').change(function(fileChoosed) {
+        console.log(this.files)
+        const reader = new FileReader();
+        reader.readAsDataURL(fileChoosed.target.files[0]);//发起异步请求
+        console.log(reader)
+        reader.onload = function(e){
+            imgFile = e.target.result;
+            let arr = imgFile.split(",");
+            console.log(arr)
+            // console.log('加载完成', readRes.target.result)
+            $("#iframeContent").contents().find("#item").attr('background', 'url('+'data:image/png;base64,'+arr[1]+')' ) 
+
+        }  
+    });
+
+    // 更换背景图
+    // $('#changeBackground').click (function() {
+    //     // 在父页面 获取iframe子页面的元素
+    //     // console.log($("#item1",document.frames('iframeContent').document))
+    //     // console.log($("#iframeContent").contents().find("#item"))
+    //     // $("#iframeContent").contents().find("#item").css('background', "url('../../assets/images/bg-agr.png')") 
+
+    // }) 
     
+    
+
+    
+
+    
+    // 更换插图 点击按钮实际是点击input
+    $('#changeIllustrationsBtn').click(function() {
+        $('#changeIllustrations').click()
+    })
+
+    $('#changeIllustrations').change(function(fileChoosed) {
+        console.log(this.files)
+        const reader = new FileReader();
+        reader.readAsDataURL(fileChoosed.target.files[0]);//发起异步请求
+        console.log(reader)
+        reader.onload = function(readRes){
+            // console.log('加载完成', readRes.target.result)
+            $("#iframeContent").contents().find("#img_adx").attr('src', readRes.target.result ) 
+
+        }  
+    });
+
+
+    // 修改文字
+    $('#changeWords').click (function() {
+        // 在父页面 获取iframe子页面的元素
+        // console.log($("#item1",document.frames('iframeContent').document))
+        // console.log($("#iframeContent").contents().find("#item"))
+        // 显示编辑器
+        
+        showEditor()
+        // $("#iframeContent").contents().find(".box_cd").css('color', 'red') 
+    })
+
+    $("#editor—wrapper .cancel").click(function() {
+        cancel()
+    })
+
+    $("#editor—wrapper .confirm").click(function() {
+        confirm()
+    })
+
+    // 保存代码
+    $("#saveHtml").click(function() {
+        saveHtmlCode()
+    })
+
+
+    // 声明
+    var editorTimer = null;
+    var editorHtml = null;
+
+      
 
     function selectHtml(selectPage){
         console.log('正在选择html:第',selectPage,"页")
@@ -65,32 +169,29 @@
         }
     }
 
-    // 更换背景图
-    $('#changeBackground').click (function() {
-        // 在父页面 获取iframe子页面的元素
-        // console.log($("#item1",document.frames('iframeContent').document))
-        // console.log($("#iframeContent").contents().find("#item"))
-        $("#iframeContent").contents().find("#item").css('background', "url('../../assets/images/bg-agr.png')") 
+    //  防抖
+    function debounce(dom,t,fn){
+        $("#dom").change(function() {
+            clearTimeout(timer);
+            timer = setTimeout(fn() , t)
+        })
+    }
 
-    })
-    // 更换插图
-    $('#changeIllustrations').click (function() {
-        // 在父页面 获取iframe子页面的元素
-        // console.log($("#item1",document.frames('iframeContent').document))
-        // console.log($("#iframeContent").contents().find("#item"))
-        $("#iframeContent").contents().find("#img_adx").attr('src', '../../assets/images/1.png') 
+    // 显示编辑器
+    function showEditor() {
+        // console.log($("#editor—wrapper"))
+        $("#editor—wrapper").fadeToggle()
+    }
+    //  编辑器btnGroup事件
+    function cancel() {
+        $("#editor—wrapper").hide()
+    }
+    function confirm() {
+        // console.log('确定')
+        console.log('editor content', editorHtml)
+         $("#iframeContent").contents().find(".box_cd").html(editorHtml).attr('class', 'txte_ocje')
 
-    })
-    // 修改文字
-    $('#changeWords').click (function() {
-        // 在父页面 获取iframe子页面的元素
-        // console.log($("#item1",document.frames('iframeContent').document))
-        // console.log($("#iframeContent").contents().find("#item"))
-        $("#iframeContent").contents().find(".box_cd").css('color', 'red') 
-        
-
-    })
-
+    }
 
     function loadWangEditor() {
         const { createEditor, createToolbar } = window.wangEditor
@@ -98,14 +199,17 @@
         const editorConfig = {
             placeholder: 'Type here...',
             onChange(editor) {
-            const html = editor.getHtml()
-            console.log('editor content', html)
+                const Html = editor.getHtml()
+                // console.log('editor content', editorHtml)
+                editorHtml = Html
+                // debounce()
+
             // 也可以同步到 <textarea>
             }
         }
 
         const editor = createEditor({
-            selector: '.editor-container',
+            selector: '#editor-container',
             html: '<p><br></p>',
             config: editorConfig,
             mode: 'default', // or 'simple'
@@ -113,11 +217,62 @@
 
         const toolbarConfig = {}
 
+        toolbarConfig.excludeKeys = [
+            "emotion",
+            "insertLink",
+            "group-image", // 排除菜单组，写菜单组 key 的值即可
+            'group-video',
+            "insertTable",
+            "codeBlock",
+            "divider",
+            "undo",
+            "redo",
+            "fullScreen"
+
+        ]
+
         const toolbar = createToolbar({
             editor,
-            selector: '.toolbar-container',
+            selector: '#toolbar-container',
             config: toolbarConfig,
             mode: 'default', // or 'simple'
         })
+        $("#editor—wrapper").hide()
+        console.log(toolbar.getConfig().toolbarKeys)
+
+        
     }
+
+        //  保存代码
+//         function fake_click(obj) {
+// 　　       var ev = document.createEvent("MouseEvents");
+//             // 在创建鼠标事件后初始化鼠标事件的值
+// 　　　　　　ev.initMouseEvent(
+// 　　　　　　　　"click", true, false, window, 0, 0, 0, 0, 0
+// 　　　　　　　　, false, false, false, false, 0, null
+// 　　　　　　);
+//             // 要调度的事件对象。其事件目标属性将设置为当前事件目标。
+// 　　　　　　obj.dispatchEvent(ev);
+// 　　　　}
+
+　　　　function export_raw(name, data) {
+　　　　　　var urlObject = window.URL || window.webkitURL || window;
+
+　　　　　　var export_blob = new Blob([data]);
+            //  createElementNS  创建具有指定命名空间 URI 和限定名称的元素。
+　　　　　　var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
+            // 该方法创建一个字符串
+　　　　　　save_link.href = urlObject.createObjectURL(export_blob);
+　　　　　　save_link.download = name;
+　　　　　　fake_click(save_link);
+　　　　}
+
+// 　　　　window.onload = function(){
+// 　　　　　　//获取iframe里面的所有html
+// 　　　　　　this.test=$("#viewPage").contents().find("html").html();
+// 　　　　　　//获取本页面的所有html
+// 　　　　　　// var test=document.getElementsByTagName('html')[0].outerHTML;
+// 　　　　　　console.log(test);
+// 　　　　}
+
 </script>

@@ -11,10 +11,6 @@
 .item .main .rows {
   width: 100%;
 }
-.item .main .leftIcon {
-  height: 10%;
-  background: red;
-}
 .item .main .leftIcon img {
   top: 0.5em;
   left: 0.5em;
@@ -93,4 +89,51 @@
   position: absolute;
   bottom: 2%;
   right: 2%;
+}
+.item .editor-content-view {
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+.item .editor-content-view p,
+.item .editor-content-view li {
+  white-space: pre-wrap;
+  /* 保留空格 */
+}
+.item .editor-content-view blockquote {
+  border-left: 8px solid #d0e5f2;
+  padding: 10px 10px;
+  margin: 10px 0;
+  background-color: #f1f1f1;
+}
+.item .editor-content-view code {
+  font-family: monospace;
+  background-color: #eee;
+  padding: 3px;
+  border-radius: 3px;
+}
+.item .editor-content-view pre > code {
+  display: block;
+  padding: 10px;
+}
+.item .editor-content-view table {
+  border-collapse: collapse;
+}
+.item .editor-content-view td,
+.item .editor-content-view th {
+  border: 1px solid #ccc;
+  min-width: 50px;
+  height: 20px;
+}
+.item .editor-content-view th {
+  background-color: #f1f1f1;
+}
+.item .editor-content-view ul,
+.item .editor-content-view ol {
+  padding-left: 20px;
+}
+.item .editor-content-view input[type="checkbox"] {
+  margin-right: 5px;
 }

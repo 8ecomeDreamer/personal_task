@@ -185,6 +185,7 @@ body .wrapper {
   display: flex;
   justify-content: space-around;
   /* text-align: center; */
+  position: relative;
 }
 body .wrapper .content {
   width: 80%;
@@ -195,8 +196,18 @@ body .wrapper .operation {
   height: 100%;
   /* background: blue; */
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+}
+body .wrapper .operation .item {
+  width: 100%;
+  height: 25%;
+  text-align: center;
+}
+body .wrapper .operation .item .truthBtn {
+  margin-top: 5rem;
+}
+body .wrapper .operation .item .btnInput {
+  display: none;
 }
 body .wrapper .custom-btn {
   display: block;
@@ -208,13 +219,19 @@ body .wrapper .custom-btn.biggest {
   height: 20%;
 }
 body .wrapper .editorWrapper {
-  border: 1px solid #ccc;
-  z-index: 100;
-  /* 按需定义 */
+  position: absolute;
+  top: 25rem;
+  left: 42rem;
+  z-index: 1000;
+  width: 40rem;
+  height: 20rem;
 }
-body .wrapper .editorWrapper .toolbarContainer {
-  border-bottom: 1px solid #ccc;
+body .wrapper .editorWrapper .btnGroup {
+  background: white;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: right;
 }
-body .wrapper .editorWrapper .editor-container {
-  height: 500px;
+body .wrapper .editorWrapper .btnGroup .confirm {
+  margin-left: 0.5rem;
 }
