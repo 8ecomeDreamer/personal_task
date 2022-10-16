@@ -68,22 +68,108 @@ body{
         
         .editorWrapper{
             position: absolute;
-            top: 25rem;
-            left: 42rem;
+            top: 26rem;
+            left: 60rem;
             z-index: 1000;
             width: 40rem;
             height: 20rem;
+            .editorContainer{
+                // width: 30rem;
+                // height: 20rem;
+            }
             .btnGroup{
                 background: white;
                 width: 100%;
-                padding: .5rem ;
+                // padding: .5rem .5rem 0 0;
                 text-align: right;
                 // border-top: 1px dotted  black;
                 .confirm{
                     margin-left: .5rem ;
                 }
             }
-        }
-    }
+            // wangeditor 
+            .editor-content-view {
+                border: 3px solid #ccc;
+                border-radius: 5px;
+                padding: 0 10px;
+                margin-top: 20px;
+                overflow-x: auto;
+            }
+            
+            .editor-content-view p,
+            .editor-content-view li {
+                white-space: pre-wrap; /* 保留空格 */
+            }
+            
+            .editor-content-view blockquote {
+                border-left: 8px solid #d0e5f2;
+                padding: 10px 10px;
+                margin: 10px 0;
+                background-color: #f1f1f1;
+            }
+            
+            .editor-content-view code {
+                font-family: monospace;
+                background-color: #eee;
+                padding: 3px;
+                border-radius: 3px;
+            }
+            .editor-content-view pre>code {
+                display: block;
+                padding: 10px;
+            }
+            
+            .editor-content-view table {
+                border-collapse: collapse;
+            }
+            .editor-content-view td,
+            .editor-content-view th {
+                border: 1px solid #ccc;
+                min-width: 50px;
+                height: 20px;
+            }
+            .editor-content-view th {
+                background-color: #f1f1f1;
+            }
+            
+            .editor-content-view ul,
+            .editor-content-view ol {
+                padding-left: 20px;
+            }
+            
+            .editor-content-view input[type="checkbox"] {
+                margin-right: 5px;
+            }
+                }
+            }
    
 }
+
+@media screen and (max-width: 1024px) and (min-width: 833px) {
+    html{
+        font-size: 16px;
+    }
+    body .wrapper .operation {
+        height: 50%;
+    }
+}
+/* 超小屏，字体黑色，背景蓝色*/
+// @media screen and (max-width: 834px ) and (min-width: 768px) {
+    html{
+        font-size: 12px;
+    }
+    body .wrapper .operation {
+        height: 60%;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    html{
+        font-size: 8px;
+    }
+    body .wrapper .operation {
+        height: 70%;
+    }
+}
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,10 @@
     <!-- wangeditor -->
     <link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="wrapper">
-        <iframe class="content" id="iframeContent" name="iframeContent"  src="./tempItem1.html" frameborder="0"></iframe>
+        <iframe class="content" id="iframeContent" name="iframeContent" src="./tempItem1.html" frameborder="0"></iframe>
         <!-- <object class="content" id="objContent" data="./tempItem2.html"></object> -->
         <!-- <content class="content"></content> -->
         <div class="operation">
@@ -31,26 +33,31 @@
             <div class="item">
                 <button id="saveHtml" class="truthBtn">保存代码</button>
             </div>
-           
-            
-            
+
+
+
         </div>
-        
+
         <div class="editorWrapper" id="editor—wrapper">
-            <div class="toolbarContainer" id="toolbar-container"><!-- 工具栏 --></div>
-            <div class="editor-container" id="editor-container"><!-- 编辑器 --></div>
+            <div class="toolbarContainer" id="toolbar-container">
+                <!-- 工具栏 -->
+            </div>
+            <div class="editorContainer" id="editor-container">
+                <!-- 编辑器 -->
+            </div>
             <div class="btnGroup">
                 <button class="cancel">取消</button>
-                <button class="confirm">确定</button>
+                <button class="confirm" data-clicked=0>确定</button>
             </div>
         </div>
     </div>
 
-    
+
 </body>
+
 </html>
 <style>
-    
+
 </style>
 
 <!-- 引入 less jquery -->
@@ -59,121 +66,41 @@
 <!-- 引入 wangeditor  -->
 <script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
 
+<!-- 导出 -->
+<!-- <script src="https://cdn.bootcss.com/jspdf/1.5.3/jspdf.debug.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script> -->
+
 <script>
 
-    $(document).ready(function(){
-        // 取参并转为json对象
-        const params = JSON.parse(localStorage.params);
-        console.log(params)
-
-        selectHtml(params.selectPage)
-        // 显示编辑器
-        loadWangEditor()
-    })
-  
-    // 更换背景图 点击按钮实际是点击input
-    $('#changeBackgroundBtn').click(function() {
-        $('#changeBackground').click()
-    })
-
-    $('#changeBackground').change(function(fileChoosed) {
-        console.log(this.files)
-        const reader = new FileReader();
-        reader.readAsDataURL(fileChoosed.target.files[0]);//发起异步请求
-        console.log(reader)
-        reader.onload = function(e){
-            imgFile = e.target.result;
-            let arr = imgFile.split(",");
-            console.log(arr)
-            // console.log('加载完成', readRes.target.result)
-            $("#iframeContent").contents().find("#item").attr('background', 'url('+'data:image/png;base64,'+arr[1]+')' ) 
-
-        }  
-    });
-
-    // 更换背景图
-    // $('#changeBackground').click (function() {
-    //     // 在父页面 获取iframe子页面的元素
-    //     // console.log($("#item1",document.frames('iframeContent').document))
-    //     // console.log($("#iframeContent").contents().find("#item"))
-    //     // $("#iframeContent").contents().find("#item").css('background', "url('../../assets/images/bg-agr.png')") 
-
-    // }) 
-    
-    
-
-    
-
-    
-    // 更换插图 点击按钮实际是点击input
-    $('#changeIllustrationsBtn').click(function() {
-        $('#changeIllustrations').click()
-    })
-
-    $('#changeIllustrations').change(function(fileChoosed) {
-        console.log(this.files)
-        const reader = new FileReader();
-        reader.readAsDataURL(fileChoosed.target.files[0]);//发起异步请求
-        console.log(reader)
-        reader.onload = function(readRes){
-            // console.log('加载完成', readRes.target.result)
-            $("#iframeContent").contents().find("#img_adx").attr('src', readRes.target.result ) 
-
-        }  
-    });
-
-
-    // 修改文字
-    $('#changeWords').click (function() {
-        // 在父页面 获取iframe子页面的元素
-        // console.log($("#item1",document.frames('iframeContent').document))
-        // console.log($("#iframeContent").contents().find("#item"))
-        // 显示编辑器
-        
-        showEditor()
-        // $("#iframeContent").contents().find(".box_cd").css('color', 'red') 
-    })
-
-    $("#editor—wrapper .cancel").click(function() {
-        cancel()
-    })
-
-    $("#editor—wrapper .confirm").click(function() {
-        confirm()
-    })
-
-    // 保存代码
-    $("#saveHtml").click(function() {
-        saveHtmlCode()
-    })
-
-
     // 声明
+    // 变量
     var editorTimer = null;
     var editorHtml = null;
+    // var allHtml = ''
+    // 确认按钮被点击次数
+    let clickedTimes 
 
-      
+    // 函数
+    function selectHtml(selectPage) {
+        console.log('正在选择html:第', selectPage, "页")
+        switch (selectPage) {
+            case 1:
+                $('#iframeContent').attr('src', './tempItem1.html')  // 当表达式的结果等于 value1 时，则执行该代码
+                break;
+            case 2:
+                $('#iframeContent').attr('src', './tempItem2.html')  // 当表达式的结果等于 value1 时，则执行该代码
+                break;
 
-    function selectHtml(selectPage){
-        console.log('正在选择html:第',selectPage,"页")
-        switch (selectPage){
-        case 1:
-            $('#iframeContent').attr('src','./tempItem1.html')  // 当表达式的结果等于 value1 时，则执行该代码
-            break;
-        case 2:
-            $('#iframeContent').attr('src','./tempItem2.html')  // 当表达式的结果等于 value1 时，则执行该代码
-            break;
-        
-        default:
-            $('#iframeContent').attr('src','./tempItem1.html')  // 如果没有与表达式相同的值，则执行该代码
+            default:
+                $('#iframeContent').attr('src', './tempItem1.html')  // 如果没有与表达式相同的值，则执行该代码
         }
     }
 
     //  防抖
-    function debounce(dom,t,fn){
-        $("#dom").change(function() {
+    function debounce(dom, t, fn) {
+        $("#dom").change(function () {
             clearTimeout(timer);
-            timer = setTimeout(fn() , t)
+            timer = setTimeout(fn(), t)
         })
     }
 
@@ -189,7 +116,7 @@
     function confirm() {
         // console.log('确定')
         console.log('editor content', editorHtml)
-         $("#iframeContent").contents().find(".box_cd").html(editorHtml).attr('class', 'txte_ocje')
+        $("#iframeContent").contents().find(".box_cd").append(editorHtml)
 
     }
 
@@ -204,7 +131,7 @@
                 editorHtml = Html
                 // debounce()
 
-            // 也可以同步到 <textarea>
+                // 也可以同步到 <textarea>
             }
         }
 
@@ -240,39 +167,194 @@
         $("#editor—wrapper").hide()
         console.log(toolbar.getConfig().toolbarKeys)
 
-        
+
     }
 
-        //  保存代码
-//         function fake_click(obj) {
-// 　　       var ev = document.createEvent("MouseEvents");
-//             // 在创建鼠标事件后初始化鼠标事件的值
-// 　　　　　　ev.initMouseEvent(
-// 　　　　　　　　"click", true, false, window, 0, 0, 0, 0, 0
-// 　　　　　　　　, false, false, false, false, 0, null
-// 　　　　　　);
-//             // 要调度的事件对象。其事件目标属性将设置为当前事件目标。
-// 　　　　　　obj.dispatchEvent(ev);
-// 　　　　}
+    //  保存代码
+    //         function fake_click(obj) {
+    // 　　       var ev = document.createEvent("MouseEvents");
+    //             // 在创建鼠标事件后初始化鼠标事件的值
+    // 　　　　　　ev.initMouseEvent(
+    // 　　　　　　　　"click", true, false, window, 0, 0, 0, 0, 0
+    // 　　　　　　　　, false, false, false, false, 0, null
+    // 　　　　　　);
+    //             // 要调度的事件对象。其事件目标属性将设置为当前事件目标。
+    // 　　　　　　obj.dispatchEvent(ev);
+    // 　　　　}
 
-　　　　function export_raw(name, data) {
-　　　　　　var urlObject = window.URL || window.webkitURL || window;
+    // function export_raw(name, data) {
+    //     var urlObject = window.URL || window.webkitURL || window;
 
-　　　　　　var export_blob = new Blob([data]);
-            //  createElementNS  创建具有指定命名空间 URI 和限定名称的元素。
-　　　　　　var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
-            // 该方法创建一个字符串
-　　　　　　save_link.href = urlObject.createObjectURL(export_blob);
-　　　　　　save_link.download = name;
-　　　　　　fake_click(save_link);
-　　　　}
+    //     var export_blob = new Blob([data]);
+    //     //  createElementNS  创建具有指定命名空间 URI 和限定名称的元素。
+    //     var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
+    //     // 该方法创建一个字符串
+    //     save_link.href = urlObject.createObjectURL(export_blob);
+    //     save_link.download = name;
+    //     fake_click(save_link);
+    // }
 
-// 　　　　window.onload = function(){
-// 　　　　　　//获取iframe里面的所有html
-// 　　　　　　this.test=$("#viewPage").contents().find("html").html();
-// 　　　　　　//获取本页面的所有html
-// 　　　　　　// var test=document.getElementsByTagName('html')[0].outerHTML;
-// 　　　　　　console.log(test);
-// 　　　　}
+    // 　　　　window.onload = function(){
+    // 　　　　　　//获取iframe里面的所有html
+    // 　　　　　　this.test=$("#viewPage").contents().find("html").html();
+    // 　　　　　　//获取本页面的所有html
+    // 　　　　　　// var test=document.getElementsByTagName('html')[0].outerHTML;
+    // 　　　　　　console.log(test);
+    // 　　　　}
+
+
+    // 导出为pdf
+    // function daochu(idTarget) {
+    //     var _this = this;
+    //     var targetDom = $("#idTarget");//你的目标元素id
+    //     var copyDom = targetDom.clone();
+    //     copyDom.width(targetDom.width() + "px");
+    //     copyDom.height(targetDom.height() + "px");
+    //     $('body').append(copyDom);
+    //     console.log('copyDom', copyDom)
+    //     html2canvas(copyDom, {
+    //         onrendered: function (canvas) {
+    //             var contentWidth = canvas.width;
+    //             var contentHeight = canvas.height;
+    //             //当前导出为横屏竖屏需要 将宽和高互换
+    //             var pageHeight = contentWidth / 841.89 * 592.28;
+    //             var leftHeight = contentHeight;
+    //             var position = 0;
+    //             var f = "p";
+    //             var pageHeight = contentWidth / 841.89 * 592.28;
+    //             //未生成pdf的html页面高度
+    //             var leftHeight = contentHeight;
+    //             //页面偏移
+    //             var position = 0;
+    //             //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
+    //             var imgWidth = 841.89;
+    //             var imgHeight = 841.89 / contentWidth * contentHeight;
+    //             var pageData = canvas.toDataURL('image/jpeg', 1.0);
+    //             //jsPDF第一个参数为 l横屏 p竖屏  
+    //             //第二个参数为单位"pt"，"mm", "cm", "m", "in" or "px"  
+    //             //第三个参数是纸张，默认为“a4” 
+    //             var pdf = new jsPDF('l', 'pt', 'a4');
+    //             //有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
+    //             //当内容未超过pdf一页显示的范围，无需分页
+    //             if (leftHeight < pageHeight) {
+    //                 pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight);
+    //             }
+    //             else {    // 分页
+    //                 while (leftHeight > 0) {
+    //                     pdf.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+    //                     leftHeight -= pageHeight;
+    //                     position -= 592.28;
+    //                     //避免添加空白页
+    //                     if (leftHeight > 0) {
+    //                         pdf.addPage();
+    //                     }
+    //                 }
+    //             }
+    //             pdf.save('分析.pdf');
+    //             copyDom.remove();
+    //         }
+    //     });
+    // }
+
+
+    $(document).ready(function () {
+        // 取参并转为json对象
+        const params = JSON.parse(localStorage.params);
+        console.log(params)
+
+        selectHtml(params.selectPage)
+        // 显示编辑器
+        loadWangEditor()
+
+        allHtml = document.getElementsByTagName('html')[0].outerHTML;
+    })
+
+    // 更换背景图 点击按钮实际是点击input
+    // $('#changeBackgroundBtn').click(function () {
+    //     $('#changeBackground').click()
+    // })
+
+    // $('#changeBackground').change(function (fileChoosed) {
+    //     console.log(this.files)
+    //     const reader = new FileReader();
+    //     reader.readAsDataURL(fileChoosed.target.files[0]);//发起异步请求
+    //     console.log(reader)
+    //     reader.onload = function (e) {
+    //         imgFile = e.target.result;
+    //         let arr = imgFile.split(",");
+    //         console.log(arr)
+    //         // console.log('加载完成', readRes.target.result)
+    //         $("#iframeContent").contents().find("#item").attr('background-image', 'url(' + arr[0] + arr[1] + ')')
+
+    //     }
+    // });
+
+    // 更换背景图
+    // $('#changeBackground').click (function() {
+    //     // 在父页面 获取iframe子页面的元素
+    //     // console.log($("#item1",document.frames('iframeContent').document))
+    //     // console.log($("#iframeContent").contents().find("#item"))
+    //     // $("#iframeContent").contents().find("#item").css('background', "url('../../assets/images/bg-agr.png')") 
+
+    // }) 
+
+    // 更换插图 点击按钮实际是点击input
+    $('#changeIllustrationsBtn').click(function () {
+        $('#changeIllustrations').click()
+    })
+
+    $('#changeIllustrations').change(function (fileChoosed) {
+        console.log(this.files)
+        const reader = new FileReader();
+        reader.readAsDataURL(fileChoosed.target.files[0]);//发起异步请求
+        console.log(reader)
+        reader.onload = function (readRes) {
+            // console.log('加载完成', readRes.target.result)
+            $("#iframeContent").contents().find("#img_adx").attr('src', readRes.target.result)
+
+        }
+    });
+
+
+    // 修改文字
+    $('#changeWords').click(function () {
+        // 在父页面 获取iframe子页面的元素
+        // console.log($("#item1",document.frames('iframeContent').document))
+        // console.log($("#iframeContent").contents().find("#item"))
+        // 显示编辑器
+
+        showEditor()
+        // $("#iframeContent").contents().find(".box_cd").css('color', 'red') 
+    })
+
+    $("#editor—wrapper .cancel").click(function () {
+        cancel()
+    })
+
+    $("#editor—wrapper .confirm").click(function () {
+        
+        // let confirmTimes = $("#editor—wrapper .confirm").attr("data-clicked")
+        // // // 判断是否初次点击，是先清除，否直接添加内容
+        // if(confirmTimes!==0){
+        //     // confirm()
+        // }
+        // else{
+        //     // $("#iframeContent").contents().find(".box_cd").empty()
+        //     // confirm()
+        //     // clickedTimes+=1
+        //     // $("#editor—wrapper .confirm").attr('data-clickedTimes',clickedTimes)
+        // }
+        // console.log(confirmTimes)
+        confirm()
+    })
+
+    // 保存代码
+    $("#saveHtml").click(function () {
+        // saveHtmlCode()
+        // daochu(allHtml)
+        console.log( $("#saveHtml"))
+    })
+
+
 
 </script>

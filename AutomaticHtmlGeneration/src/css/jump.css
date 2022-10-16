@@ -220,8 +220,8 @@ body .wrapper .custom-btn.biggest {
 }
 body .wrapper .editorWrapper {
   position: absolute;
-  top: 25rem;
-  left: 42rem;
+  top: 26rem;
+  left: 60rem;
   z-index: 1000;
   width: 40rem;
   height: 20rem;
@@ -229,9 +229,80 @@ body .wrapper .editorWrapper {
 body .wrapper .editorWrapper .btnGroup {
   background: white;
   width: 100%;
-  padding: 0.5rem;
   text-align: right;
 }
 body .wrapper .editorWrapper .btnGroup .confirm {
   margin-left: 0.5rem;
+}
+body .wrapper .editorWrapper .editor-content-view {
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+body .wrapper .editorWrapper .editor-content-view p,
+body .wrapper .editorWrapper .editor-content-view li {
+  white-space: pre-wrap;
+  /* 保留空格 */
+}
+body .wrapper .editorWrapper .editor-content-view blockquote {
+  border-left: 8px solid #d0e5f2;
+  padding: 10px 10px;
+  margin: 10px 0;
+  background-color: #f1f1f1;
+}
+body .wrapper .editorWrapper .editor-content-view code {
+  font-family: monospace;
+  background-color: #eee;
+  padding: 3px;
+  border-radius: 3px;
+}
+body .wrapper .editorWrapper .editor-content-view pre > code {
+  display: block;
+  padding: 10px;
+}
+body .wrapper .editorWrapper .editor-content-view table {
+  border-collapse: collapse;
+}
+body .wrapper .editorWrapper .editor-content-view td,
+body .wrapper .editorWrapper .editor-content-view th {
+  border: 1px solid #ccc;
+  min-width: 50px;
+  height: 20px;
+}
+body .wrapper .editorWrapper .editor-content-view th {
+  background-color: #f1f1f1;
+}
+body .wrapper .editorWrapper .editor-content-view ul,
+body .wrapper .editorWrapper .editor-content-view ol {
+  padding-left: 20px;
+}
+body .wrapper .editorWrapper .editor-content-view input[type="checkbox"] {
+  margin-right: 5px;
+}
+@media screen and (max-width: 1024px) and (min-width: 833px) {
+  html {
+    font-size: 16px;
+  }
+  body .wrapper .operation {
+    height: 50%;
+  }
+}
+/* 超小屏，字体黑色，背景蓝色*/
+@media screen and (max-width: 834px) and (min-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+  body .wrapper .operation {
+    height: 60%;
+  }
+}
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 8px;
+  }
+  body .wrapper .operation {
+    height: 70%;
+  }
 }
