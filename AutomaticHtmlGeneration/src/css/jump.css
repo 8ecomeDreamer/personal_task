@@ -281,28 +281,3 @@ body .wrapper .editorWrapper .editor-content-view ol {
 body .wrapper .editorWrapper .editor-content-view input[type="checkbox"] {
   margin-right: 5px;
 }
-@media screen and (max-width: 1024px) and (min-width: 833px) {
-  html {
-    font-size: 16px;
-  }
-  body .wrapper .operation {
-    height: 50%;
-  }
-}
-/* 超小屏，字体黑色，背景蓝色*/
-@media screen and (max-width: 834px) and (min-width: 768px) {
-  html {
-    font-size: 12px;
-  }
-  body .wrapper .operation {
-    height: 60%;
-  }
-}
-@media screen and (max-width: 767px) {
-  html {
-    font-size: 8px;
-  }
-  body .wrapper .operation {
-    height: 70%;
-  }
-}

@@ -13,7 +13,7 @@
 
 <body>
     <div class="wrapper">
-        <iframe class="content" id="iframeContent" name="iframeContent" src="./tempItem1.html" frameborder="0"></iframe>
+        <iframe class="content" id="iframeContent" name="iframeContent" src="./tempItem1.html" frameborder="0" data-needUse=false></iframe>
         <!-- <object class="content" id="objContent" data="./tempItem2.html"></object> -->
         <!-- <content class="content"></content> -->
         <div class="operation">
@@ -80,20 +80,26 @@
     // 确认按钮被点击次数
     let clickedTimes 
 
-    // 函数
-    function selectHtml(selectPage) {
-        console.log('正在选择html:第', selectPage, "页")
-        switch (selectPage) {
-            case 1:
-                $('#iframeContent').attr('src', './tempItem1.html')  // 当表达式的结果等于 value1 时，则执行该代码
-                break;
-            case 2:
-                $('#iframeContent').attr('src', './tempItem2.html')  // 当表达式的结果等于 value1 时，则执行该代码
-                break;
+   // 选择页
+   function selectHtml(selectPage) {
+            console.log('正在选择html:第', selectPage, "页")
+            switch (selectPage) {
+                case 1:
+                    $('#iframeContent').attr('src', './tempItem1.html')  // 当表达式的结果等于 value1 时，则执行该代码
+                    break;
+                case 2:
+                    $('#iframeContent').attr('src', './tempItem2.html')  // 当表达式的结果等于 value1 时，则执行该代码
+                    break;
 
-            default:
-                $('#iframeContent').attr('src', './tempItem1.html')  // 如果没有与表达式相同的值，则执行该代码
-        }
+                default:
+                    $('#iframeContent').attr('src', './tempItem1.html')  // 如果没有与表达式相同的值，则执行该代码
+            }
+    }
+
+    // 传给父iframe
+    function toFatherFrame() {
+        var useBtn = false
+        return useBtn
     }
 
     //  防抖
@@ -116,8 +122,27 @@
     function confirm() {
         // console.log('确定')
         console.log('editor content', editorHtml)
-        $("#iframeContent").contents().find(".box_cd").append(editorHtml)
+        // 判断进入了哪个页面
+        let selectPageIdx = JSON.parse(localStorage.getItem('params')).selectPage
+        // console.log('现在的页面值是:',selectPageIdx)
+        // 添加节点和样式
+        switch(selectPageIdx){
+            case 1:{
+                $("#iframeContent").contents().find(".box_cd .box_adxr").append(editorHtml)
+                $("#iframeContent").contents().find(".box_cd .box_adxr p").attr('class','txte_ocje')
 
+                $("#editor—wrapper").hide()
+                break;
+            }
+            case 2:{
+                $("#iframeContent").contents().find(".box_cd .content").append(editorHtml)
+                // .css('text-align','left').css('margin-left','10px')
+                $("#iframeContent").contents().find(".box_cd .content p").attr('class','text_ar')
+                $("#editor—wrapper").hide()
+                break;
+            }
+        }
+        
     }
 
     function loadWangEditor() {
@@ -352,7 +377,7 @@
     $("#saveHtml").click(function () {
         // saveHtmlCode()
         // daochu(allHtml)
-        console.log( $("#saveHtml"))
+        // console.log( $("#saveHtml"))
     })
 
 

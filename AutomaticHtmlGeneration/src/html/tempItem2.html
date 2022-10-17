@@ -27,10 +27,14 @@
             </div>
             <div class="rows box_cd">
                 <div class="wrapper">
-                    <img class="chanp" src="../../assets/images/chanp说明.png" alt="">
-                    <p class="text_ar">产品名称：抖音定向流量包</p>
-                    <p class="text_ar"> 产品包含：20GB头条系定向流量 </p>
-                    <p class="text_ar">产品资费：30元/月 订购立即生效，次月自动续订</p>
+                    <div class="row title">
+                        <img class="chanp" src="../../assets/images/chanp说明.png" alt="">
+                    </div>
+                    <div class="row content">
+                        <p class="text_ar">产品名称：抖音定向流量包</p>
+                        <p class="text_ar"> 产品包含：20GB头条系定向流量 </p>
+                        <p class="text_ar">产品资费：30元/月 订购立即生效，次月自动续订</p>
+                    </div>
                     <div class="row btn-tip">
                         查看更多
                     </div>
@@ -74,9 +78,7 @@
             
             </div>
         </div>
-        <div class="btnBox">
-            <button class="custom-btn btn-3"><span>使用</span></button>
-        </div>
+
     </div>
 </body>
 </html>
@@ -89,7 +91,7 @@
 
     $(document).ready(function(){
         // selectHtml()
-        $(".btnBox").remove();
+        // $(".btnBox").remove();
     })
     //     // // 取参并转为json对象
 //     // const params = JSON.parse(localStorage.params);
