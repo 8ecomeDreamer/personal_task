@@ -211,7 +211,7 @@ body .content .item {
 body .content .item .btnBox {
   position: absolute;
   bottom: 1rem;
-  right: 1rem;
+  right: 2rem;
 }
 body .content .left .lContent {
   width: 100%;
