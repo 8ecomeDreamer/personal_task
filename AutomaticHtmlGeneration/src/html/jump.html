@@ -130,17 +130,17 @@
         // 添加节点和样式
         switch(idx){
             case 1:{
-                // $("#iframeContent").contents().find(".box_cd .box_adxr").append(setEditorHtml)
-                // $("#iframeContent").contents().find(".box_cd .box_adxr p").attr('class','txte_ocje')
+                $("#iframeContent").contents().find(".box_cd .box_adxr").append(editorHtml)
+                $("#iframeContent").contents().find(".box_cd .box_adxr p").attr('class','txte_ocje')
                 //  获取页面1的文本节点并修改
 
                 $("#editor—wrapper").hide()
                 break;
             }
             case 2:{
-                // $("#iframeContent").contents().find(".box_cd .content").append(setEditorHtml)
-                // .css('text-align','left').css('margin-left','10px')
-                // $("#iframeContent").contents().find(".box_cd .content p").attr('class','text_ar')
+                $("#iframeContent").contents().find(".box_cd .content").append(editorHtml)
+                .css('text-align','left').css('margin-left','10px')
+                $("#iframeContent").contents().find(".box_cd .content p").attr('class','text_ar')
                 //  获取页面2的文本节点并修改
 
                 $("#editor—wrapper").hide()
@@ -150,9 +150,10 @@
         
     }
 
-    function loadWangEditor() {
+    function loadWangEditor(resetHtml=null) {
         // resetHtml
         // resetHtml = resetHtml || '<p><br></p>'
+        // resetHtml可选
         const { createEditor, createToolbar } = window.wangEditor
 
         const editorConfig = {
@@ -196,8 +197,13 @@
             config: toolbarConfig,
             mode: 'default', // or 'simple'
         })
-        $("#editor—wrapper").hide()
-        console.log(toolbar.getConfig().toolbarKeys)
+
+        // 存在设置内容
+        // if(resetHtml){
+        //     editor.setHtml(resetHtml)
+        // }
+        // $("#editor—wrapper").hide()
+        // console.log(toolbar.getConfig().toolbarKeys)
 
 
     }
@@ -269,27 +275,34 @@
     $('#changeWords').click(function () {
 
         // 判断页面
-        switch(selectPageIdx){
-            case 1:{
-                setEditorHtml=$("#iframeContent").contents().find(".box_cd .box_adxr").html()
-                editor.setHtml(setEditorHtml)
-                // $("#iframeContent").contents().find(".box_cd .box_adxr p").attr('class','txte_ocje')
-                //  获取页面1的文本节点并修改
-                break;
-            }
-            case 2:{
-                setEditorHtml=$("#iframeContent").contents().find(".box_cd .content").html()
-                editor.setHtml(setEditorHtml)
-                // .css('text-align','left').css('margin-left','10px')
-                // $("#iframeContent").contents().find(".box_cd .content p").attr('class','text_ar')
-                //  获取页面2的文本节点并修改
-                break;
-            }
-        }
+        // switch(selectPageIdx){
+        //     case 1:{
+        //         setEditorHtml=$("#iframeContent").contents().find(".box_cd .box_adxr").html()
+        //         // editor.setHtml(setEditorHtml)
+        //         // loadWangEditor(setEditorHtml)
+        //         // $("#iframeContent").contents().find(".box_cd .box_adxr p").attr('class','txte_ocje')
+        //         //  获取页面1的文本节点并修改
+        //         break;
+        //     }
+        //     case 2:{
+        //         setEditorHtml=$("#iframeContent").contents().find(".box_cd .content").html()
+        //         // editor.setHtml(setEditorHtml)
+        //         // loadWangEditor(setEditorHtml)
+        //         const E = window.wangEditor
+        //         const editor = new E('#editor—wrapper')
+        //         editor.create()
+        //         editor.txt.html(setEditorHtml) 
+
+        //         // .css('text-align','left').css('margin-left','10px')
+        //         // $("#iframeContent").contents().find(".box_cd .content p").attr('class','text_ar')
+        //         //  获取页面2的文本节点并修改
+        //         break;
+        //     }
+        // }
         // console.log ('文本内容为:',setEditorHtml)
 
         // 显示编辑器
-        // showEditor()
+        showEditor()
         // $("#iframeContent").contents().find(".box_cd").css('color', 'red') 
     })
 
