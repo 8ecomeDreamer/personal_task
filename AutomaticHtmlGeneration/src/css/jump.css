@@ -180,12 +180,13 @@ body {
   height: 100%;
 }
 body .wrapper {
-  width: 100%;
+  width: 40%;
   height: 100%;
   display: flex;
   justify-content: space-around;
   /* text-align: center; */
   position: relative;
+  margin: 0 auto;
 }
 body .wrapper .content {
   width: 80%;
@@ -220,8 +221,8 @@ body .wrapper .custom-btn.biggest {
 }
 body .wrapper .editorWrapper {
   position: absolute;
-  top: 26rem;
-  left: 60rem;
+  top: 27rem;
+  left: -8rem;
   z-index: 1000;
   width: 40rem;
   height: 20rem;

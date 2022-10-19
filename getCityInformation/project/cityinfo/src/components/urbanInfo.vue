@@ -78,7 +78,9 @@
           <h4 class="h4">CityData</h4>
           <span class="span">...........from</span>
         </section>
-        <section class="div7"></section>
+        <section class="div7" id="mapContainer">
+          <mapCom class="mapCom"></mapCom>
+        </section>
       </el-main>
       <!-- <el-footer>Footer</el-footer> -->
     </el-container>
@@ -86,6 +88,8 @@
 </template>
 
 <script>
+import mapCom from "./mapCom.vue"
+
 export default {
   name: "urbanInfo",
   data() {
@@ -93,7 +97,14 @@ export default {
       input: "",
     };
   },
+  components:{
+    mapCom
+  },
   props: {},
+  created() {
+  },
+  methods: {
+  },
 };
 </script>
 
@@ -130,6 +141,7 @@ export default {
       .item {
         padding: 0.5rem 1rem;
         overflow: scroll;
+        border: 1px solid black;
         // display:flex;
         .title,
         .context {
@@ -182,34 +194,35 @@ export default {
 
       .div1 {
         grid-area: 1 / 1 / 4 / 4;
-        background: red;
+        // background: red;
       }
 
       .div2 {
         grid-area: 4 / 1 / 6 / 2;
-        background: blue;
+        // background: blue;
       }
 
       .div3 {
         grid-area: 4 / 2 / 6 / 3;
-        background: cyan;
+        // background: cyan;
       }
 
       .div4 {
         grid-area: 6 / 1 / 8 / 2;
-        background: orange;
+        // background: orange;
       }
 
       .div5 {
         grid-area: 6 / 2 / 8 / 3;
-        background: lawngreen;
+        // background: lawngreen;
       }
 
       .div6 {
         grid-area: 4 / 3 / 8 / 4;
-        background: indianred;
+        // background: indianred;
         padding: 0.5rem 1rem;
         overflow: scroll;
+        border: 1px solid black;
         .h4{
           margin-top: 0;
           margin-bottom: 10px;
@@ -238,7 +251,13 @@ export default {
 
       .div7 {
         grid-area: 1 / 4 / 8 / 6;
-        background: khaki;
+        border: 1px solid black;
+        // background: khaki;
+        .mapCom{
+          width: 100%;
+          height: 100%;
+          // background: black;
+        }
       }
     }
   }

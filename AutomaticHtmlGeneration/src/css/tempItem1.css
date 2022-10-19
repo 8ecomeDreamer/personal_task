@@ -13,7 +13,6 @@
 }
 .item .main .leftIcon {
   height: 10%;
-  background: red;
 }
 .item .main .leftIcon img {
   top: 0.5em;
@@ -22,25 +21,28 @@
   width: 7rem;
   height: 3rem;
 }
-.item .main .rows.rowTitle {
+.item .main .rowTitle {
   height: 15%;
 }
-.item .main .rows.rowTitle img {
+.item .main .rowTitle img {
   width: 30%;
   height: 60%;
 }
-.item .main .rows.rowContent {
-  height: 25%;
+.item .main .rowContent {
+  height: 11rem;
+  margin-bottom: 1rem;
 }
-.item .main .rows.rowContent img {
+.item .main .rowContent img {
   width: 50%;
-  height: 90%;
+  height: 100%;
+  object-fit: cover;
+  display: inline-block;
 }
-.item .main .rows.apps {
-  height: 5%;
-  margin-bottom: 1em;
+.item .main .apps {
+  height: 2.5rem;
+  margin-bottom: 1rem;
 }
-.item .main .rows.apps .btn {
+.item .main .apps .btn {
   display: inline-block;
   background: #ebbd27;
   color: white;
@@ -55,8 +57,6 @@
   background: #64A0F0;
   border-radius: 5px;
   padding-top: 5px;
-  overflow: scroll;
-  overflow-x: hidden;
   /* track滚动条未覆盖区域 */
   /* thumb滚动条覆盖区域 */
 }
