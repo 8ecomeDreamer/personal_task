@@ -6,6 +6,9 @@ import App from './App.vue'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+
+
+
 // baidu
 import BaiduMap from 'vue-baidu-map'
 
@@ -22,5 +25,6 @@ Vue.use(BaiduMap, {
 new Vue({
   render: h => h(App),
 }).$mount('#app')
+
 
 

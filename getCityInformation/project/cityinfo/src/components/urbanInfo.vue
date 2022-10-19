@@ -2,81 +2,74 @@
   <div class="urbanInfo">
     <el-container class="container">
       <el-header class="header">
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
+        <el-input v-model="input" placeholder="请输入内容" @change="sendRequest()"></el-input>
       </el-header>
       <el-main class="main">
         <section class="div1 item">
           <h4 class="title">General Information</h4>
           <div class="context">
-            <div class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
+            <div class="content" >
+              <p class="left"><span>目前城市属于:</span>{{&nbsp;&nbsp;}} <span>{{this.time.country}}</span></p>
+              <p class="left"><span>所在时区属于:</span>{{&nbsp;&nbsp;}} <span>{{this.time.timeZone}}</span></p>
+              <p class="left"><span>时间为:</span>{{&nbsp;&nbsp;}} <span>{{this.time.strtime}}</span></p>
+              <!-- <p class="right">...........from  <span class="hightlight"></span></p> -->
             </div>
-            <li class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
-            </li>
-            <li class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
-            </li>
           </div>
         </section>
         <section class="div2 item">
-          <h4 class="title">Economy</h4>
+          <h4 class="title">Weather</h4>
           <div class="context">
-            <div class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
+            <div class="content"  v-for="(item, index) in this.weather" :key="index">
+              <span style="font-weight:bold;">{{item.week}}</span>{{&nbsp;}}{{&nbsp;}}
+              <span style="font-weight:bold;">{{item.weather}}</span>
+              <p class="left">{{item.tips}}</p>
+              <!-- <p class="right">...........from  <span class="hightlight"></span></p> -->
             </div>
-            <li class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
-            </li>
           </div>
         </section>
         <section class="div3 item">
-          <h4 class="title">Society</h4>
+          <h4 class="title">News</h4>
           <div class="context">
-            <div class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
+            <div class="content"  v-for="(item, index) in this.news" :key="index">
+              <p class="left">{{item.title}}</p>
+              <p class="right">...........from  <span class="hightlight">{{item.source}}</span></p>
             </div>
-            <li class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
-            </li>
           </div>
         </section>
         <section class="div4 item">
-          <h4 class="title">Environment</h4>
+          <h4 class="title">Riddle</h4>
           <div class="context">
-            <div class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
+            <div class="content" v-for="(item, index) in this.riddle" :key="index">
+              <p class="left"> question: <span>{{item.quest}}</span></p>
+              <p class="right"> answers: <span class="hightlight"> {{item.result}} </span></p>
             </div>
-            <li class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
-            </li>
           </div>
         </section>
         <section class="div5 item">
           <h4 class="title">Technology</h4>
           <div class="context">
-            <div class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
+            <div
+              class="content"
+              v-for="(item, index) in this.technology"
+              :key="index"
+            >
+              <p class="left">{{ item.title }}</p>
+              <p class="right">...........from   <span class="hightlight">{{ item.source }}</span></p>
             </div>
-            <li class="content">
-              <span class="left">C</span>
-              <span class="right">...........from</span>
-            </li>
           </div>
         </section>
         <section class="div6">
           <h4 class="h4">CityData</h4>
-          <span class="span">...........from</span>
+          <!-- 某（市区县级行政区）、城市天气ID和行政区划类型等信息 -->
+          <div class="wrapper"  v-for="(item, index) in this.cityData" :key="index">
+            <span class="span">城市:<span class="hightlight"> {{ item.citycn }}</span> </span>
+            <span class="span">省份:<span class="hightlight"> {{ item.provincecn }}</span> </span>
+            <p class="p">行政区划代码:<span class="hightlight"> {{ item.areaid }}</span> </p>
+            <span class="span">经度：<span class="hightlight"> {{ item.longitude }}</span> </span>
+            <span class="span">维度：<span class="hightlight"> {{ item.latitude }}</span> </span>
+          </div>
+
+          <!-- <p class="p">...........from  <span class="hightlight" v-if="this.input.length === 0">天行数据</span></p> -->
         </section>
         <section class="div7" id="mapContainer">
           <mapCom class="mapCom"></mapCom>
@@ -88,23 +81,152 @@
 </template>
 
 <script>
-import mapCom from "./mapCom.vue"
+import mapCom from "./mapCom.vue";
+// 引入 axios
+import axios from "axios";
 
 export default {
   name: "urbanInfo",
   data() {
     return {
       input: "",
+      technology: [],
+      cityData:[],
+      weather:[],
+      news:[],
+      time:[],
+      riddle:[]
     };
   },
-  components:{
-    mapCom
+  components: {
+    mapCom,
   },
   props: {},
   created() {
+    
+    // this.setData()
+    // this.getCityId()
+    
   },
   methods: {
-  },
+    // 发送数据 
+    sendRequest(){
+      // 天行数据
+      this.getTechnology();
+      this.getCityData();
+      this.getWeather();
+      this.getEnvironment()
+      // this.getTime()
+      this.getRiddle()
+      // console.log(this.input)
+    },
+    // 天行数据
+    getTechnology() {
+      axios.post("http://api.tianapi.com/keji/index?key=83dca344f80b02a5e4238bad4c0903d9&num=13")
+      .then((response) => {
+        this.technology = response.data.newslist;
+        // // console.log(this.technology);
+        // localStorage.setItem('technology',JSON.stringify(response.data.newslist))
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
+    // 天行数据
+    getCityData() {
+      if (this.input.trim() != "") {
+        axios.post(`http://api.tianapi.com/citylookup/index?key=83dca344f80b02a5e4238bad4c0903d9&area=${this.input}`)
+        .then((response) => {
+          this.cityData = response.data.newslist
+          console.log(this.cityData);
+          // localStorage.setItem('cityId',JSON.stringify(this.cityData[0].areaid.substring(2)))
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+    },
+    // 天行数据
+    getWeather() {
+      if (this.input.trim() != "") {
+      axios.get(`http://api.tianapi.com/tianqi/index?key=83dca344f80b02a5e4238bad4c0903d9&city=101280800&type=7 `)
+        .then( (response) => {
+          this.weather = response.data.newslist
+          console.log(this.weather);
+          // localStorage.setItem('cityId',JSON.stringify(response.data.newslist[0].areaid))
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+    },
+
+    getEnvironment(){
+      if (this.input.trim() != "") {
+      axios.get(`https://eolink.o.apispace.com/34324/air/v001/aqi`,{
+        headers:{
+          'X-APISpace-Token':'X-APISpace-Token',
+          'Authorization-Type':'apikey'
+          },
+          params:{
+            areacode:101280800
+          }
+      }
+      ).then( (response) => {
+          // this.technology = response.data.newslist
+          console.log(response);
+          // localStorage.setItem('technology',JSON.stringify(response.data.newslist))
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+       
+    },
+    // 天行数据
+    getNews(){
+      if (this.input.trim() != "") {
+      axios.get(`http://api.tianapi.com/tianqi/index?key=83dca344f80b02a5e4238bad4c0903d9&areaname=${this.input} `)
+        .then( (response) => {
+          this.news = response.data.newslist
+          console.log(this.news);
+          // localStorage.setItem('cityId',JSON.stringify(response.data.newslist[0].areaid))
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+    },
+    // console.log(axios)
+    // 天行数据
+    getTime(){
+      if (this.input.trim() != "") {
+      axios.get(`http://api.tianapi.com/worldtime/index?key=83dca344f80b02a5e4238bad4c0903d9&areaname=${this.input} `)
+        .then( (response) => {
+          this.time = response.data.newslist
+          console.log(this.time);
+          // localStorage.setItem('cityId',JSON.stringify(response.data.newslist[0].areaid))
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+    },
+    // 天行数据
+    getRiddle(){
+      if (this.input.trim() != "") {
+      axios.get(`http://api.tianapi.com/cityriddle/index?key=83dca344f80b02a5e4238bad4c0903d9 `)
+        .then( (response) => {
+          this.riddle = response.data.newslist
+          console.log(this.time);
+          // localStorage.setItem('cityId',JSON.stringify(response.data.newslist[0].areaid))
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+    }
+  }
 };
 </script>
 
@@ -121,7 +243,7 @@ export default {
   .container {
     width: 90%;
     height: 90%;
-
+    // background: blue;
     .header {
       width: 80%;
       height: 20%;
@@ -150,22 +272,28 @@ export default {
         .title {
           // height: 10%;
           margin-top: 0;
-          margin-bottom: 10px;
+          margin-bottom: 5px;
         }
         .context {
           height: calc(~"100%-10%");
           .content {
-            display: flex;
-            justify-content: space-between;
+            // display: flex;
+            // justify-content: space-between;
             list-style: none;
             width: 100%;
+            font-size: 13px;
+            margin-bottom: 12px;
             .left,
             .right {
             }
             .left {
+              text-align: left;
             }
             .right {
-              margin-top: 0.5rem;
+              text-align: right;
+              .hightlight{
+                color: red;
+              }
             }
           }
         }
@@ -223,9 +351,29 @@ export default {
         padding: 0.5rem 1rem;
         overflow: scroll;
         border: 1px solid black;
-        .h4{
+        .h4 {
           margin-top: 0;
           margin-bottom: 10px;
+        }
+        .wrapper{
+          .p{
+            text-align: left;
+          }
+          .span{
+            margin-right: 1rem;
+            display: inline-block;
+            width: 100%;
+
+            .hightlight{
+              color: #f8b90a;
+            }
+          }
+        }
+        .p{
+          text-align: right;
+          .hightlight{
+            color: #f8b90a;
+          }
         }
         &::-webkit-scrollbar {
           width: 0;
@@ -253,7 +401,7 @@ export default {
         grid-area: 1 / 4 / 8 / 6;
         border: 1px solid black;
         // background: khaki;
-        .mapCom{
+        .mapCom {
           width: 100%;
           height: 100%;
           // background: black;
