@@ -13,8 +13,15 @@
         zoom: 3
       };
     },
-    props: {},
+    props: {
+      input:String
+    },
     created() {
+    
+    },
+    mounted() {
+      // console.log(this.input)
+
     },
     methods: {
         handler ({BMap, map}) {

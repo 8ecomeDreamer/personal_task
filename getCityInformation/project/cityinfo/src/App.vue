@@ -18,8 +18,8 @@ export default {
 
 <style>
 #app {
-  width: 110rem;
-  height: 50rem;
+  width: 90rem;
+  height: 40rem;
   margin: 0 auto;
   /* background: black; */
 }

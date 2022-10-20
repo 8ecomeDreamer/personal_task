@@ -1,0 +1,89 @@
+@import "../../assets/css/reset.less";
+
+html,body{
+    width: 100%;
+    height: 100%; 
+}
+body{
+    .wrapper {
+        width: 100%;
+        height: 100%;
+        min-width: 375px;
+        // background: red; 
+        text-align: center;
+    }
+    .title,.content{
+        width: 100%;
+    }
+    .title{
+        height: 2rem; 
+        // background: black;
+        // color: white;
+        display: table;
+        h1{
+            display: table-cell;
+            vertical-align:middle;
+        }
+        // transform: translateY(50%); 
+    }
+    .content {
+        height: calc(~"100% - 2rem");
+        // background: yellow;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        .item{
+            width: 45%;
+            height: 95%;
+            // border: 1px solid black ;
+            position: relative;
+            .btnBox{
+                position: absolute;
+                // bottom: 2rem;
+                // right: 4rem;
+                bottom: 12rem;
+                right: 11rem;
+            }
+        }
+        .left{
+            .lContent{
+                width: 50%;
+                height: 75%;
+            }
+            
+        }
+        .right{
+            .rContent{
+                width: 50%;
+                height: 75%;
+            }
+        }
+        
+    }
+}
+
+
+
+@media  screen and (max-width: 768px) {
+   html{
+        font-size: 15px;
+   }
+   body .wrapper .content .item.left{
+        display: block;
+        width: 100%;
+   }
+   body .wrapper .content .item.right{
+        display: block;
+        width: 100%;
+
+}
+}
+
+
+
+
+
+ 
+
+
+

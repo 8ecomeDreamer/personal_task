@@ -5,13 +5,13 @@
         <el-input v-model="input" placeholder="请输入内容" @change="sendRequest()"></el-input>
       </el-header>
       <el-main class="main">
-        <section class="div1 item">
+        <section class="div1 item" @click="test()">
           <h4 class="title">General Information</h4>
           <div class="context">
-            <div class="content" >
-              <p class="left"><span>目前城市属于:</span>{{&nbsp;&nbsp;}} <span>{{this.time.country}}</span></p>
-              <p class="left"><span>所在时区属于:</span>{{&nbsp;&nbsp;}} <span>{{this.time.timeZone}}</span></p>
-              <p class="left"><span>时间为:</span>{{&nbsp;&nbsp;}} <span>{{this.time.strtime}}</span></p>
+            <div class="content"   v-for="(item, index) in this.time" :key="index">
+              <p class="left"><span>目前城市属于:</span>{{&nbsp;&nbsp;}} <span style="font-weight:bold;">{{item.country}}</span></p>
+              <p class="left"><span>所在时区属于:</span>{{&nbsp;&nbsp;}} <span style="font-weight:bold;">{{item.timeZone}}</span></p>
+              <p class="left"><span>当前时间为:</span>{{&nbsp;&nbsp;}} <span style="font-weight:bold;">{{item.strtime}}</span></p>
               <!-- <p class="right">...........from  <span class="hightlight"></span></p> -->
             </div>
           </div>
@@ -28,20 +28,24 @@
           </div>
         </section>
         <section class="div3 item">
-          <h4 class="title">News</h4>
+          <h4 class="title">Sunset</h4>
           <div class="context">
-            <div class="content"  v-for="(item, index) in this.news" :key="index">
-              <p class="left">{{item.title}}</p>
-              <p class="right">...........from  <span class="hightlight">{{item.source}}</span></p>
+            <div class="content"  v-for="(item, index) in this.sunset" :key="index">
+              <p class="left"  style="font-weight:bold;">{{item.data_time}}</p>
+              <p class="">
+                <span>日出时间为:</span>{{&nbsp;}}{{&nbsp;}}<span style="font-weight:bold;">{{item.sunrise}}</span>{{&nbsp;}}{{&nbsp;}}
+                <span>日落时间为:</span>{{&nbsp;}}{{&nbsp;}}<span style="font-weight:bold;">{{item.sunset}}</span>
+                
+              </p>
             </div>
           </div>
         </section>
         <section class="div4 item">
-          <h4 class="title">Riddle</h4>
+          <h4 class="title">Environment</h4>
           <div class="context">
-            <div class="content" v-for="(item, index) in this.riddle" :key="index">
-              <p class="left"> question: <span>{{item.quest}}</span></p>
-              <p class="right"> answers: <span class="hightlight"> {{item.result}} </span></p>
+            <div class="content" v-for="(item, index) in this.environment" :key="index">
+              <p class="left"> 城市下属区: <span class="hightlight">{{item.name}}</span></p>
+              <p class="right"> 空气质量为: <span class="hightlight"> {{item.aqi_level}} </span></p>
             </div>
           </div>
         </section>
@@ -72,7 +76,7 @@
           <!-- <p class="p">...........from  <span class="hightlight" v-if="this.input.length === 0">天行数据</span></p> -->
         </section>
         <section class="div7" id="mapContainer">
-          <mapCom class="mapCom"></mapCom>
+          <mapCom class="mapCom" :input="input"></mapCom>
         </section>
       </el-main>
       <!-- <el-footer>Footer</el-footer> -->
@@ -93,9 +97,9 @@ export default {
       technology: [],
       cityData:[],
       weather:[],
-      news:[],
+      sunset:[],
       time:[],
-      riddle:[]
+      environment:[]
     };
   },
   components: {
@@ -115,10 +119,16 @@ export default {
       this.getTechnology();
       this.getCityData();
       this.getWeather();
-      this.getEnvironment()
-      // this.getTime()
-      this.getRiddle()
+      this.getEnvironment();
+      this.getSunset();
+      this.getTime()
       // console.log(this.input)
+    },
+    test(){
+      console.log( JSON.parse(localStorage.getItem("cityData")) )
+      //  获取城市id
+      let cityDataid = JSON.parse(localStorage.getItem("cityData"))[0].areaid.substring(2)
+      console.log(cityDataid)
     },
     // 天行数据
     getTechnology() {
@@ -133,13 +143,14 @@ export default {
       });
     },
     // 天行数据
+    // general information
     getCityData() {
       if (this.input.trim() != "") {
         axios.post(`http://api.tianapi.com/citylookup/index?key=83dca344f80b02a5e4238bad4c0903d9&area=${this.input}`)
         .then((response) => {
           this.cityData = response.data.newslist
           console.log(this.cityData);
-          // localStorage.setItem('cityId',JSON.stringify(this.cityData[0].areaid.substring(2)))
+          localStorage.setItem('cityData',JSON.stringify(this.cityData))
         })
         .catch(function (error) {
           console.log(error);
@@ -149,7 +160,8 @@ export default {
     // 天行数据
     getWeather() {
       if (this.input.trim() != "") {
-      axios.get(`http://api.tianapi.com/tianqi/index?key=83dca344f80b02a5e4238bad4c0903d9&city=101280800&type=7 `)
+      let cityDataid = JSON.parse(localStorage.getItem("cityData"))[0].areaid.substring(2)
+      axios.get(`http://api.tianapi.com/tianqi/index?key=83dca344f80b02a5e4238bad4c0903d9&city=${cityDataid}&type=7 `)
         .then( (response) => {
           this.weather = response.data.newslist
           console.log(this.weather);
@@ -160,21 +172,23 @@ export default {
         });
       }
     },
-
+    // apispace
     getEnvironment(){
+      let cityDataid = JSON.parse(localStorage.getItem("cityData"))[0].areaid.substring(2)
       if (this.input.trim() != "") {
-      axios.get(`https://eolink.o.apispace.com/34324/air/v001/aqi`,{
+      axios.get(`as/34324/air/v001/aqi`,{
         headers:{
-          'X-APISpace-Token':'X-APISpace-Token',
-          'Authorization-Type':'apikey'
+          "X-APISpace-Token":"pq9db0v0aqfja0uoc99zx7dokah71oq0",
+          "Authorization-Type":"apikey",
+          "Content-Type":"application/json;charset=UTF-8"
           },
           params:{
-            areacode:101280800
+            "areacode":cityDataid
           }
       }
       ).then( (response) => {
-          // this.technology = response.data.newslist
-          console.log(response);
+          this.environment = response.data.result.realtimeAqi.stations
+          // console.log(response);
           // localStorage.setItem('technology',JSON.stringify(response.data.newslist))
         })
         .catch(function (error) {
@@ -183,14 +197,25 @@ export default {
       }
        
     },
-    // 天行数据
-    getNews(){
+    // api
+    getSunset(){
+      let cityDataid = JSON.parse(localStorage.getItem("cityData"))[0].areaid.substring(2)
       if (this.input.trim() != "") {
-      axios.get(`http://api.tianapi.com/tianqi/index?key=83dca344f80b02a5e4238bad4c0903d9&areaname=${this.input} `)
-        .then( (response) => {
-          this.news = response.data.newslist
-          console.log(this.news);
-          // localStorage.setItem('cityId',JSON.stringify(response.data.newslist[0].areaid))
+      axios.get(`as/ewre/lives_geo/v001/sun`,{
+        headers:{
+          "X-APISpace-Token":"pq9db0v0aqfja0uoc99zx7dokah71oq0",
+          "Authorization-Type":"apikey",
+          "Content-Type":"application/json;charset=UTF-8"
+          },
+          params:{
+            "days":15,
+            "areacode":cityDataid
+          }
+      }
+      ).then( (response) => {
+          this.sunset = response.data.result.sunrises
+          // console.log(response);
+          // localStorage.setItem('technology',JSON.stringify(response.data.newslist))
         })
         .catch(function (error) {
           console.log(error);
@@ -201,10 +226,10 @@ export default {
     // 天行数据
     getTime(){
       if (this.input.trim() != "") {
-      axios.get(`http://api.tianapi.com/worldtime/index?key=83dca344f80b02a5e4238bad4c0903d9&areaname=${this.input} `)
+      axios.get(`http://api.tianapi.com/worldtime/index?key=83dca344f80b02a5e4238bad4c0903d9&city=${this.input} `)
         .then( (response) => {
           this.time = response.data.newslist
-          console.log(this.time);
+          console.log(response);
           // localStorage.setItem('cityId',JSON.stringify(response.data.newslist[0].areaid))
         })
         .catch(function (error) {
@@ -212,20 +237,6 @@ export default {
         });
       }
     },
-    // 天行数据
-    getRiddle(){
-      if (this.input.trim() != "") {
-      axios.get(`http://api.tianapi.com/cityriddle/index?key=83dca344f80b02a5e4238bad4c0903d9 `)
-        .then( (response) => {
-          this.riddle = response.data.newslist
-          console.log(this.time);
-          // localStorage.setItem('cityId',JSON.stringify(response.data.newslist[0].areaid))
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      }
-    }
   }
 };
 </script>
@@ -343,6 +354,14 @@ export default {
       .div5 {
         grid-area: 6 / 2 / 8 / 3;
         // background: lawngreen;
+        .context{
+          .left{
+            margin-bottom: 0;
+          }
+          .right{
+            margin-top: 0;
+          }
+        }
       }
 
       .div6 {

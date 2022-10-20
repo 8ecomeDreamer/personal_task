@@ -1,0 +1,283 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* custom */
+a {
+  color: #7e8c8d;
+  text-decoration: none;
+  -webkit-backface-visibility: hidden;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+html,
+body {
+  width: 100%;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", "微软雅黑", sans-serif;
+}
+body {
+  line-height: 1;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  overflow-y: scroll;
+}
+/*清除浮动*/
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: inline-block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  *zoom: 1;
+}
+/*隐藏*/
+.dn {
+  display: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body .wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  /* text-align: center; */
+  position: relative;
+}
+body .wrapper .content {
+  width: 80%;
+  height: 100%;
+}
+body .wrapper .operation {
+  width: 20%;
+  height: 100%;
+  /* background: blue; */
+  display: flex;
+  flex-wrap: wrap;
+}
+body .wrapper .operation .item {
+  width: 100%;
+  height: 25%;
+  text-align: center;
+}
+body .wrapper .operation .item .truthBtn {
+  margin-top: 5rem;
+}
+body .wrapper .operation .item .btnInput {
+  display: none;
+}
+body .wrapper .custom-btn {
+  display: block;
+  width: 60%;
+  height: 6%;
+  margin: 0 auto;
+}
+body .wrapper .custom-btn.biggest {
+  height: 20%;
+}
+body .wrapper .editorWrapper {
+  position: absolute;
+  top: 26rem;
+  left: 60rem;
+  z-index: 1000;
+  width: 40rem;
+  height: 20rem;
+}
+body .wrapper .editorWrapper .btnGroup {
+  background: white;
+  width: 100%;
+  text-align: right;
+}
+body .wrapper .editorWrapper .btnGroup .confirm {
+  margin-left: 0.5rem;
+}
+body .wrapper .editorWrapper .editor-content-view {
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+body .wrapper .editorWrapper .editor-content-view p,
+body .wrapper .editorWrapper .editor-content-view li {
+  white-space: pre-wrap;
+  /* 保留空格 */
+}
+body .wrapper .editorWrapper .editor-content-view blockquote {
+  border-left: 8px solid #d0e5f2;
+  padding: 10px 10px;
+  margin: 10px 0;
+  background-color: #f1f1f1;
+}
+body .wrapper .editorWrapper .editor-content-view code {
+  font-family: monospace;
+  background-color: #eee;
+  padding: 3px;
+  border-radius: 3px;
+}
+body .wrapper .editorWrapper .editor-content-view pre > code {
+  display: block;
+  padding: 10px;
+}
+body .wrapper .editorWrapper .editor-content-view table {
+  border-collapse: collapse;
+}
+body .wrapper .editorWrapper .editor-content-view td,
+body .wrapper .editorWrapper .editor-content-view th {
+  border: 1px solid #ccc;
+  min-width: 50px;
+  height: 20px;
+}
+body .wrapper .editorWrapper .editor-content-view th {
+  background-color: #f1f1f1;
+}
+body .wrapper .editorWrapper .editor-content-view ul,
+body .wrapper .editorWrapper .editor-content-view ol {
+  padding-left: 20px;
+}
+body .wrapper .editorWrapper .editor-content-view input[type="checkbox"] {
+  margin-right: 5px;
+}
