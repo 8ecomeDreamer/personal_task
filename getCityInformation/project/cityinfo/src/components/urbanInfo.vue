@@ -98,7 +98,11 @@ export default {
       sunset:[],
       time:[],
       environment:[],
-      inputEmpty:true
+      inputEmpty:true,
+      // apispace
+      apiKey:'ezeqpen9e3f3q6ggb97283t01eei3dx3',
+      //  天行数据
+      tianKey:'83dca344f80b02a5e4238bad4c0903d9'
     };
   },
   watch:{
@@ -115,23 +119,8 @@ export default {
     mapCom,
   },
   props: {},
-  beforeCreate() {
-    // console.log('111')
-    //  获取id
-    axios.post(`http://api.tianapi.com/citylookup/index?key=83dca344f80b02a5e4238bad4c0903d9&area=${this.input}`)
-    .then((response) => {
-      // this.cityData = response.data.newslist
-      console.log(response);
-      // 将id等信息存储至客户端
-      localStorage.setItem('cityData',JSON.stringify(response.data.newslist))
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-   
+  created(){
 
-  
-    
   },
   methods: {
     // 发送数据 
@@ -154,14 +143,18 @@ export default {
       // console.log(cityDataid)
     },
     // 天行数据
-    // general information
     async getCityData() {
       if (this.input.trim() != "") {
-        await axios.post(`http://api.tianapi.com/citylookup/index?key=83dca344f80b02a5e4238bad4c0903d9&area=${this.input}`)
+        await axios.post(`http://api.tianapi.com/citylookup/index?key=${this.tianKey}&area=${this.input}`)
         .then((response) => {
           this.cityData = response.data.newslist
           console.log(this.cityData);
           // localStorage.setItem('cityData',JSON.stringify(this.cityData))
+             // 将id等信息存储至客户端
+          localStorage.setItem('cityData',JSON.stringify(this.cityData))
+          //  this.$nextTick(
+          //     this.getTailRestrictions()
+          //  )
         })
         .catch(function (error) {
           console.log(error);
@@ -173,12 +166,12 @@ export default {
     async getTailRestrictions() {
       // let temp = JSON.parse(localStorage.getItem('cityData'))
       // console.log(temp)
-      let cityDataid = JSON.parse(localStorage.getItem("cityData"))[0].areaid.substring(2)
-      console.log(cityDataid)
+      let cityDataid = JSON.parse( localStorage.getItem("cityData"))[0].areaid.substring(2)
+      console.log('getTailRestrictions:',cityDataid)
       if (this.input.trim() != "") {
       await axios.get(`as/5345645/lives_geo/v001/xianxing`,{
         headers:{
-          "X-APISpace-Token":"pq9db0v0aqfja0uoc99zx7dokah71oq0",
+          "X-APISpace-Token": this.apiKey,
           "Authorization-Type":"apikey",
           "Content-Type":"application/json;charset=UTF-8"
           },
@@ -203,7 +196,7 @@ export default {
       if (this.input.trim() != "") {
       let cityDataid = JSON.parse(localStorage.getItem("cityData"))[0].areaid.substring(2)
       console.log(cityDataid)
-      await axios.get(`http://api.tianapi.com/tianqi/index?key=83dca344f80b02a5e4238bad4c0903d9&city=${cityDataid}&type=7 `)
+      await axios.get(`http://api.tianapi.com/tianqi/index?key=${this.tianKey}&city=${cityDataid}&type=7 `)
         .then( (response) => {
           this.weather = response.data.newslist
           console.log(this.weather);
@@ -217,10 +210,11 @@ export default {
     // apispace
     async getEnvironment(){
       let cityDataid = JSON.parse(localStorage.getItem("cityData"))[0].areaid.substring(2)
+      console.log("Environment:",cityDataid)
       if (this.input.trim() != "") {
       await axios.get(`as/34324/air/v001/aqi`,{
         headers:{
-          "X-APISpace-Token":"pq9db0v0aqfja0uoc99zx7dokah71oq0",
+          "X-APISpace-Token": this.apiKey ,
           "Authorization-Type":"apikey",
           "Content-Type":"application/json;charset=UTF-8"
           },
@@ -242,10 +236,11 @@ export default {
     // apispace
     async getSunset(){
       let cityDataid = JSON.parse(localStorage.getItem("cityData"))[0].areaid.substring(2)
+      console.log("Sunset:",cityDataid)
       if (this.input.trim() != "") {
       await axios.get(`as/ewre/lives_geo/v001/sun`,{
         headers:{
-          "X-APISpace-Token":"pq9db0v0aqfja0uoc99zx7dokah71oq0",
+          "X-APISpace-Token":this.apiKey,
           "Authorization-Type":"apikey",
           "Content-Type":"application/json;charset=UTF-8"
           },
@@ -268,7 +263,7 @@ export default {
     // 天行数据
     async getTime(){
       if (this.input.trim() != "") {
-      await axios.get(`http://api.tianapi.com/worldtime/index?key=83dca344f80b02a5e4238bad4c0903d9&city=${this.input} `)
+      await axios.get(`http://api.tianapi.com/worldtime/index?key=${this.tianKey}&city=${this.input} `)
         .then( (response) => {
           this.time = response.data.newslist
           console.log(response);
@@ -279,19 +274,6 @@ export default {
         });
       }
     },
-    // async getCityId(){
-    //   if (this.input.trim() != "") {
-    //     await axios.post(`http://api.tianapi.com/citylookup/index?key=83dca344f80b02a5e4238bad4c0903d9&area=${this.input}`)
-    //     .then((response) => {
-    //       // this.cityData = response.data.newslist
-    //       console.log(response);
-    //       localStorage.setItem('cityData',response.data.newslist)
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //     });
-    //   }
-    // }
   }
 };
 </script>
