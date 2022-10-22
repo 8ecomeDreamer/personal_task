@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="" class="form">
+            <label for="productionDate">选择生产日期：</label>
+            <input type="date" id="selectProductionDate" name="selectProductionDate">
+            <label for="Shelflife" id="expior">选择保质期时间：</label>
+            <select id="select">
+                <!-- <option>1</option> -->
+            </select>
+            <button id="btn1">检查提交时间</button>
+            
+        </form>
+        <main id="main">
+
+        </main>
+    </div>
+   
+</body>
+</html>
+<style>
+
+</style>
+<script>
+    var btn1= document.getElementById("btn1")
+    var select= document.getElementById("select")
+    var selectProductionDate= document.getElementById("selectProductionDate")
+    var main= document.getElementById("main")
+    // 变量
+    // 拼接options
+    var allOptions = "";
+    // 保质时间
+    let expior = 0
+    // 生产时间
+    let selectProductionDateValue=""
+    // 过期时间
+    let expirationTime=""
+
+    // 调用
+    forOption()
+    // 选择框变化触发
+    select.onchange = function () {
+      var index = this.selectedIndex;
+    //   console.log('选择===',this.options[index].text);  
+      expior = this.options[index].text
+      console.log('保质时间===',expior);  
+
+    }
+    // 日期框变化触发
+    selectProductionDate.onchange = function () {
+    //   console.log('选择===',this.options[index].text);  
+      selectProductionDateValue = selectProductionDate.value
+      console.log('生产时间===',selectProductionDateValue);  
+    }
+    
+    // 点击按钮触发
+    btn1.onclick=function (e){
+        //  取消默认事件
+        e.preventDefault();
+        // console.log(selectProductionDateValue,expior)
+        
+        var date1 = new Date(selectProductionDateValue);//过期时间
+        var date2 = new Date().getTime();
+        var date1_s = date1.getTime();//转化为时间戳毫秒数
+        date1.setTime(date1_s + 1000 * 60 * 60 * 24 * expior) //过期时间戳
+
+        var expirationTime = filterTime(date1)
+        var TodayTime = filterTime(date2)
+        var start = date1.getTime()
+        var end = date2
+        var daysDifference = Math.ceil((start - end) / (1000*3600*24))
+        console.log(daysDifference)
+
+        if(daysDifference > 0){
+            var p = document.createElement("p")
+            p.innerHTML = `计算结果为：过期时间为${expirationTime}，还有${daysDifference}天过期`
+            main.appendChild(p);
+            console.log(p)
+        }
+        else if(daysDifference == 0){
+            var p = document.createElement("p")
+            p.innerHTML = `计算结果为：过期时间为${expirationTime}，今天过期`
+            main.appendChild(p);
+            console.log(p)
+
+        }
+        else {
+            var p = document.createElement("p")
+            p.innerHTML = `计算结果为：过期时间为${expirationTime}，已经过期${Math.abs(daysDifference)}天了`
+            p.style.color = "red"
+            main.appendChild(p);
+
+        }
+    }
+
+    // 声明
+    function forOption() {
+        // 遍历提取出数组里的省份
+        for (var i = 0; i<100; i++) {
+            // console.log(i);
+            var item = "<option>"+i+"</option>";//在html 为<option>上海</option>
+            // 传给前面写的空变量
+            allOptions += item;
+        }
+        // 获取html页面的select标签
+        // console.log(allOptions);
+        select.innerHTML = allOptions;
+    }
+
+
+    function filterTime(time) {
+        const date = new Date(time)
+        const Y = date.getFullYear()
+        const M = date.getMonth() + 1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1 
+        const D = date.getDate()
+        return `${Y}-${M}-${D}`
+    }
+
+    
+
+</script>
