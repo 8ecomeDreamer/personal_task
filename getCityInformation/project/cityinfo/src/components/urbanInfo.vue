@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import mapCom from "./mapCom.vue";
+import mapCom from "../../../../../simpleVue3/project/simpleVue3/src/components/mapCom.vue";
 // 引入 axios
 import axios from "axios";
 
