@@ -12,17 +12,20 @@ defineProps({
 
 <template>
     <div class="common-layout">
-    <el-container>
+    <main>
       <!-- <el-aside width="200px"><MapCom></MapCom></el-aside> -->
-      <el-container>
-        <el-header><Title></Title></el-header>
-        <el-main><Main></Main></el-main>
-        <el-footer><Footer></Footer></el-footer>
-      </el-container>
-    </el-container>
+      <div class="wrapper">
+        <header><Title></Title></header>
+        <main><Main></Main></main>
+        <footer class="footer"><Footer></Footer></footer>
+      </div>
+    </main>
   </div>
 </template>
 
 <style scoped>
-
+  .wrapper .footer{
+    width: 100%;
+    /* margin-bottom: 2rem; */
+  }
 </style>
