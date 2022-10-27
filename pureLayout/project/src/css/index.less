@@ -21,11 +21,65 @@
         grid-template-rows: repeat(10, 1fr);
         grid-column-gap: 0;
         grid-row-gap: 0;
-        background: cornflowerblue;
+        // background: cornflowerblue;
 
         .item{
             // height: 100%;
             // display: inline-grid;
+            cursor: pointer;
+            .bg{
+                width: 100%;
+                height: 100%;
+                background: url("../../assets/img/微信图片_20220426162551.jpg") no-repeat center ;
+                background-size: cover;
+                position: relative; 
+                .title{
+                    background: rgb(255, 251, 251);
+                    position: absolute;
+                    text-align: center;
+                    color: #a059a7;
+                    font-size: 2rem;
+                    padding: 0 1rem;
+                }
+
+                .title.upLeft{
+                    bottom: 10%;
+                    right: 2%;
+                }
+                .title.upRight{
+                    top: 10%;
+                    right: 2%;
+                }
+                .title.center{
+                    // top: 5%;
+                    // left: 50%;
+                    transform: translate(30%,50%);
+                }
+                .title.leftLower{
+                    top: 10%;
+                    left: 2%;
+                }
+                .title.rightLower{
+                    top: 10%;
+                    left: 2%;
+                }
+
+                &:nth-child(1){
+
+                }
+                &:nth-child(2){
+                    
+                }
+                &:nth-child(3){
+                    
+                }
+                &:nth-child(4){
+                    
+                }
+                &:nth-child(5){
+                    
+                }
+            }
         }
         .upLeft { 
             grid-row-start: 1;
@@ -46,7 +100,7 @@
         }
         .upRight { 
             grid-row-start: 1;
-            grid-row-end: 4;
+            grid-row-end: 5;
             grid-column-start: 8;
             grid-column-end: 11;
             // grid-area: 1 / 8 / span  / auto; 
