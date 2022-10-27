@@ -189,14 +189,45 @@ html {
 .wrapper .main {
   width: 100%;
   height: 90%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: inline-grid;
+  grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
   background: cornflowerblue;
 }
 .wrapper .main .upLeft {
-  grid-area: 1 / 1 / 5 / 4;
+  grid-row-start: 1;
+  grid-row-end: 5;
+  grid-column-start: 1;
+  grid-column-end: 4;
   background: red;
+}
+.wrapper .main .leftLower {
+  grid-row-start: 7;
+  grid-row-end: 11;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background: blue;
+}
+.wrapper .main .upRight {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 8;
+  grid-column-end: 11;
+  background: green;
+}
+.wrapper .main .rightLower {
+  grid-row-start: 7;
+  grid-row-end: 11;
+  grid-column-start: 8;
+  grid-column-end: 11;
+  background: yellow;
+}
+.wrapper .main .center {
+  grid-row-start: 1;
+  grid-row-end: 11;
+  grid-column-start: 5;
+  grid-column-end: 7;
+  background: coral;
 }
