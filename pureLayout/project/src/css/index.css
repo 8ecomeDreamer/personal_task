@@ -194,7 +194,43 @@ html {
   grid-template-rows: repeat(10, 1fr);
   grid-column-gap: 0;
   grid-row-gap: 0;
-  background: cornflowerblue;
+}
+.wrapper .main .item {
+  cursor: pointer;
+}
+.wrapper .main .item .bg {
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/img/微信图片_20220426162551.jpg") no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+.wrapper .main .item .bg .title {
+  background: #fffbfb;
+  position: absolute;
+  text-align: center;
+  color: #a059a7;
+  font-size: 2rem;
+  padding: 0 1rem;
+}
+.wrapper .main .item .bg .title.upLeft {
+  bottom: 10%;
+  right: 2%;
+}
+.wrapper .main .item .bg .title.upRight {
+  top: 10%;
+  right: 2%;
+}
+.wrapper .main .item .bg .title.center {
+  transform: translate(30%, 50%);
+}
+.wrapper .main .item .bg .title.leftLower {
+  top: 10%;
+  left: 2%;
+}
+.wrapper .main .item .bg .title.rightLower {
+  top: 10%;
+  left: 2%;
 }
 .wrapper .main .upLeft {
   grid-row-start: 1;
@@ -212,7 +248,7 @@ html {
 }
 .wrapper .main .upRight {
   grid-row-start: 1;
-  grid-row-end: 4;
+  grid-row-end: 5;
   grid-column-start: 8;
   grid-column-end: 11;
   background: green;
