@@ -1,0 +1,497 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* custom */
+a {
+  color: #7e8c8d;
+  text-decoration: none;
+  -webkit-backface-visibility: hidden;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+html,
+body {
+  width: 100%;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", "微软雅黑", sans-serif;
+}
+body {
+  line-height: 1;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  overflow-y: scroll;
+}
+/*清除浮动*/
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: inline-block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  *zoom: 1;
+}
+/*隐藏*/
+.dn {
+  display: none;
+}
+.wrapper {
+  width: 600rem;
+  height: 58rem;
+  display: flex;
+}
+.wrapper .module {
+  width: 120rem;
+  height: 100%;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+}
+.wrapper .part_1 {
+  position: relative;
+}
+.wrapper .part_1 .section {
+  position: absolute;
+}
+.wrapper .part_1 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_1 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_1 .section {
+  width: 40%;
+  height: 60%;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+.wrapper .part_1 .section img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_1 .section .section {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+}
+.wrapper .part_1 .section .section p {
+  line-height: 4;
+  font-size: 1.5rem;
+}
+.wrapper .part_1 .section .section p .r_span {
+  color: red;
+}
+.wrapper .part_2 {
+  position: relative;
+}
+.wrapper .part_2 .house,
+.wrapper .part_2 .bear {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .part_2 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_2 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_2 .house {
+  width: 100%;
+  height: 60%;
+}
+.wrapper .part_2 .house img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-fit: contain;
+  object-fit: scale-down;
+}
+.wrapper .part_2 .bear {
+  width: 15%;
+  height: 32%;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  background-image: url("../../assets/img/右上/liyue_p1_guoba.1eaa0d50..png.png");
+  background-position: 0rem -21rem;
+}
+.wrapper .part_3 {
+  position: relative;
+}
+.wrapper .part_3 .fire1,
+.wrapper .part_3 .fire2,
+.wrapper .part_3 .fire3,
+.wrapper .part_3 .fire6,
+.wrapper .part_3 .fire9,
+.wrapper .part_3 .section {
+  position: absolute;
+}
+.wrapper .part_3 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_3 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_3 .fire1 {
+  top: 10%;
+  left: 70%;
+}
+.wrapper .part_3 .fire2 {
+  top: 15%;
+  left: 16%;
+}
+.wrapper .part_3 .fire3 {
+  z-index: 2;
+  top: 30%;
+  left: 7%;
+}
+.wrapper .part_3 .fire6 {
+  z-index: 5;
+  top: 30%;
+  left: 63%;
+}
+.wrapper .part_3 .fire9 {
+  z-index: 20;
+  bottom: -15%;
+  left: 35%;
+}
+.wrapper .part_3 .section {
+  width: 40%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.wrapper .part_3 .section img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_3 .section .section {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+}
+.wrapper .part_3 .section .section p {
+  line-height: 4;
+  font-size: 1.5rem;
+}
+.wrapper .part_3 .section .section p .r_span {
+  color: red;
+}
+.wrapper .part_4 {
+  position: relative;
+}
+.wrapper .part_4 .cloud1,
+.wrapper .part_4 .cloud2,
+.wrapper .part_4 .section {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .part_4 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_4 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_4 .cloud1 {
+  top: 20%;
+  left: 15%;
+}
+.wrapper .part_4 .cloud2 {
+  top: 20%;
+  left: 60%;
+}
+.wrapper .part_4 .section {
+  width: 40%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.wrapper .part_4 .section img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_4 .section .section {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+}
+.wrapper .part_4 .section .section p {
+  line-height: 4;
+  font-size: 1.5rem;
+}
+.wrapper .part_4 .section .section p .r_span {
+  color: red;
+}
+.wrapper .part_5 {
+  position: relative;
+}
+.wrapper .part_5 .cloud,
+.wrapper .part_5 .section {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .part_5 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_5 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_5 .cloud {
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wrapper .part_5 .cloud img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_5 .section {
+  width: 40%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.wrapper .part_5 .section img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_5 .section .section {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+}
+.wrapper .part_5 .section .section p {
+  line-height: 4;
+  font-size: 1.5rem;
+}
+.wrapper .part_5 .section .section p .r_span {
+  color: red;
+}
+.wrapper .part_6 {
+  position: relative;
+}
+.wrapper .part_6 .woods,
+.wrapper .part_6 .section {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .part_6 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_6 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_7 {
+  position: relative;
+}
+.wrapper .part_7 .woods,
+.wrapper .part_7 .section {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .part_7 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_7 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_8 {
+  position: relative;
+}
+.wrapper .part_8 .woods,
+.wrapper .part_8 .section {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper .part_8 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_8 .bg img {
+  width: 100%;
+  height: 100%;
+}

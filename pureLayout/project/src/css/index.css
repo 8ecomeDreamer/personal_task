@@ -201,8 +201,6 @@ html {
 .wrapper .main .item .bg {
   width: 100%;
   height: 100%;
-  background: url("../../assets/img/微信图片_20220426162551.jpg") no-repeat center;
-  background-size: cover;
   position: relative;
 }
 .wrapper .main .item .bg .title {
@@ -222,7 +220,8 @@ html {
   right: 2%;
 }
 .wrapper .main .item .bg .title.center {
-  transform: translate(30%, 50%);
+  top: 20%;
+  left: 20%;
 }
 .wrapper .main .item .bg .title.leftLower {
   top: 10%;
@@ -232,38 +231,41 @@ html {
   top: 10%;
   left: 2%;
 }
+.wrapper .main .item .bg img {
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  object-fit: fill;
+  object-fit: contain;
+  object-fit: scale-down;
+}
 .wrapper .main .upLeft {
   grid-row-start: 1;
   grid-row-end: 5;
   grid-column-start: 1;
   grid-column-end: 4;
-  background: red;
 }
 .wrapper .main .leftLower {
   grid-row-start: 7;
   grid-row-end: 11;
   grid-column-start: 1;
   grid-column-end: 4;
-  background: blue;
 }
 .wrapper .main .upRight {
   grid-row-start: 1;
   grid-row-end: 5;
   grid-column-start: 8;
   grid-column-end: 11;
-  background: green;
 }
 .wrapper .main .rightLower {
   grid-row-start: 7;
   grid-row-end: 11;
   grid-column-start: 8;
   grid-column-end: 11;
-  background: yellow;
 }
 .wrapper .main .center {
   grid-row-start: 1;
   grid-row-end: 11;
   grid-column-start: 5;
   grid-column-end: 7;
-  background: coral;
 }

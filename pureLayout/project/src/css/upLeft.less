@@ -1,6 +1,6 @@
 @import "../../assets/css/reset.less";
 .wrapper{
-    width: 2000rem;
+    width: 750rem;
     height: 58rem;
     // background: cornflowerblue;
     display: flex;
@@ -9,32 +9,285 @@
         height: 100%;
         border: 1px solid black;
         position: relative;
+        overflow: hidden;
     }
 
-    .part_1{      
+    .part_1{     
+        position:relatvie;
+        // overflow: hidden;
+        .star1,.star2,.cloud{
+            position: absolute;
+            z-index: -100;
+        }
+        .star1{
+            top: 35%;
+            left: -10%;
+        }
+        .star2{
+            top: 25%;
+            left: 10%;
+        }
+        .cloud{
+            bottom: 0%;
+            right: -50%;
+        }
         .main{
             // position: absolute;
-            width: 25rem;
-            height: 25rem;
-            // border: 1px solid black;
+            width: 40%;
+            height: 60%;
+            z-index: 100;
+            border: 1px solid black;
             margin: 0 auto;
-            transform: translateY(50%);
-            background: url("../../assets/img/左上/mengde_p7_text.81d3651a..png.png") no-repeat center ;
-            background-size: cover;
-            .pContainer{
-                width: 80%;
-                height: 80%;
-                border: 1px solid black;
-                margin: 0 auto;
-                .p{
-                    text-align: center;
-                    // vertical-align: middle;
-                    .r_span{
-                        color: red;
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            // transform: translate(-50% -50%);
+            // background: url("../../assets/img/左上/mengde_p7_text.81d3651a..png.png") no-repeat center ;
+            // background-size: cover;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .section{
+                // text-align: center;
+                // vertical-align: middle;
+                width: 50%;
+                height: 50%;
+                // border: 1px solid black;
+                font-size: 1.5rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                padding: 10%;
+                .imgWrapper{
+                    width: 100%;
+                    height: 100%;
+                    z-index: -10;
+                    display: inline-block;
+                    // position: absolute;
+                    img{
+                        width: 100%;
+                        height: 100%;
                     }
                 }
+                p{
+                    line-height: 3;
+                }
+                .r_span{
+                    color: red;
+                }
             }
+
            
+        }
+    }
+    .part_2{
+        position: relative;
+        
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .grassland,.weeds1,.weeds2,.weeds3,.weeds4,.stone,.warrior4{
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+        }
+        .grassland{
+            width: 100%;
+            // height: 20%;
+            bottom: -60%;
+            left: 0%;
+        }
+        .weeds1{
+            bottom: 15%;
+            left: 30%;
+        }
+        .weeds2{
+            bottom: 20%;
+            left: 75%;
+        }
+        .weeds3{
+            bottom: 2%;
+            left: 15%;
+        }
+        .weeds4{
+            bottom: 33%;
+            left: 60%;
+            z-index: 2;
+        }
+        .stone{
+            bottom: 36%;
+            left: 50%;
+        }
+        .warrior4{
+            bottom: 10%;
+            left: 60%;
+            z-index: 3;
+        }
+    }
+    .part_3{
+        position: relative;
+        .weeds,.trees,.section{
+            position: absolute;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .weeds{
+            width: 60%;
+            bottom: -45%;
+            left: -5%;
+        }
+        .trees{
+            bottom: 0%;
+            right: 0%;
+
+        }
+        .section{
+            width: 30%;
+            height: 50%;
+            // border: 1px solid black;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 10%;
+            p{
+                line-height: 3;
+            }
+        }
+    }
+    .part_4{
+        position: relative;
+        .ltree,.rtree{
+            position: absolute;
+            width: 40%;
+            height: 90%;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .ltree{
+
+            top: 10%;
+            left: 10%;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .rtree{
+            top: 10%;
+            left: 50%;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .part_5{
+        position: relative;
+        .weeds1,.weeds2,.weeds3,.weeds4,.flowers1,.flowers2,.flowers3{
+            position: absolute;
+            width: 20%;
+            height: 20%;
+            // top: 0;
+            // left: 0;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .weeds1{
+            top: 50%;
+            left: 15%;
+        }
+        .weeds2{
+            top: 50%;
+            left: 35%;
+        }
+        .weeds3{
+            top: 60%;
+            left: 20%;
+        }
+        .weeds4{
+            top: 60%;
+            left: 40%;
+        }
+        .flowers1{
+            top: 45%;
+            left: 90%;
+        }
+        .flowers2{
+            top: 55%;
+            left: 90%;
+        }
+        .flowers3{
+            top: 75%;
+            left: 90%;
+        }
+        
+    }
+    .part_6{
+        position: relative;
+        .woods,.section{
+            position: absolute;
+            // width: 20%;
+            // height: 20%;
+            top: 0;
+            left: 0;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .woods{
+            top:20%;
+            left: 30%;
+        }
+        .section{
+            width: 30%;
+            height: 50%;
+            // border: 1px solid black;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 55%;
+            left: 75%;
+            transform: translate(-50%,-50%);
+            padding: 10%;
+            p{
+                line-height: 3;
+            }
         }
     }
 }
