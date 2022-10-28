@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!-- <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" ></script> -->
+<script type="text/javascript">
+    // var _ = require('lodash');
+// 声明
+let Obj1 = {
+        OrderId: "",
+        orderDiscount: "",
+        customerId: "",
+        customerEmail: "",
+        customerStatus: "",
+        currencyCode: "",
+        orderPromoCode: "",
+        price: "",
+        sku: "",
+        quantity: "",
+        name: "",
+        category: "",
+        clickid: ""
+    }
+    let Obj2 = {
+        order_no: "1",
+        discount_total: "2",
+        customer: {
+            custoner_id: "1",
+            email: "1231231"
+        },
+        currency_code: "12",
+        discount_code: "23",
+        lineitems: {
+            price: "2354",
+            sku: "sdfds",
+            length: "2153425",
+            product_title: "dsaffsasdij"
+        }
+    }
+
+    let mapObjModule = {
+        OrderId: "order_no",
+        orderDiscount: "discount_total",
+        customerId: "customer.custoner_id",
+        customerEmail: "customer.email",
+        currencyCode: "currency_code",
+        price: "lineitems.price",
+        sku: "lineitems.sku",
+        quantity: "lineitems.length",
+        name: "lineitems.product_title"
+    }
+    let mapObjModule1 = {};
+    for (let k in mapObjModule) {
+        let val = mapObjModule[k];
+        if (val.includes('.')) {
+            let vList = val.split('.') || [];
+            val = vList[vList.length - 1];
+        }
+        mapObjModule1[val] = k;
+    }
+    function replaceObject(obj1, obj2, map) {
+        for (let key in obj2) {
+            let item = obj2[key];
+            if (typeof item === 'object') {
+                replaceObject(obj1, obj2[key], map);
+            } else {
+                let key1 = map[key];
+                obj1[key1] = item;
+            }
+        }
+        console.log(obj1)
+    }
+    replaceObject(Obj1, Obj2, mapObjModule1);
+
+</script>
