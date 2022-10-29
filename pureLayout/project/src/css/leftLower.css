@@ -175,7 +175,7 @@ html {
   display: none;
 }
 .wrapper {
-  width: 2000rem;
+  width: 360rem;
   height: 58rem;
   display: flex;
 }
@@ -184,4 +184,233 @@ html {
   height: 100%;
   border: 1px solid black;
   position: relative;
+  overflow: hidden;
+}
+.wrapper .part_1,
+.wrapper .part_2,
+.wrapper .part_3,
+.wrapper .part_4,
+.wrapper .part_5,
+.wrapper .part_6 {
+  position: relative;
+}
+.wrapper .part_1 .bg,
+.wrapper .part_2 .bg,
+.wrapper .part_3 .bg,
+.wrapper .part_4 .bg,
+.wrapper .part_5 .bg,
+.wrapper .part_6 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_1 .bg img,
+.wrapper .part_2 .bg img,
+.wrapper .part_3 .bg img,
+.wrapper .part_4 .bg img,
+.wrapper .part_5 .bg img,
+.wrapper .part_6 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_1 .cloud,
+.wrapper .part_1 .road,
+.wrapper .part_1 .main {
+  position: absolute;
+}
+.wrapper .part_1 .cloud {
+  top: 8%;
+  left: 10%;
+  z-index: 10;
+}
+.wrapper .part_1 .road {
+  top: 11%;
+  left: 10%;
+}
+.wrapper .part_1 .main {
+  width: 12%;
+  height: 60%;
+  z-index: 100;
+  border: 1px solid black;
+  margin: 0 auto;
+  top: 20%;
+  left: 15%;
+}
+.wrapper .part_1 .main img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_1 .main .section {
+  width: 80%;
+  height: 80%;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10%;
+}
+.wrapper .part_1 .main .section .imgWrapper {
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  display: inline-block;
+}
+.wrapper .part_1 .main .section .imgWrapper img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_1 .main .section p {
+  line-height: 3;
+}
+.wrapper .part_1 .main .section .r_span {
+  color: red;
+}
+.wrapper .part_2 .cloud,
+.wrapper .part_2 .road,
+.wrapper .part_2 .main,
+.wrapper .part_2 .group,
+.wrapper .part_2 .floor,
+.wrapper .part_2 .tree,
+.wrapper .part_2 .pillars {
+  position: absolute;
+}
+.wrapper .part_2 .cloud {
+  position: absolute;
+  top: -10%;
+  left: -20%;
+  z-index: 10;
+}
+.wrapper .part_2 .road {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  transform: skew(-45deg);
+}
+.wrapper .part_2 .floor {
+  top: 31%;
+  left: 70%;
+}
+.wrapper .part_2 .tree {
+  top: 0%;
+  left: 70%;
+}
+.wrapper .part_2 .pillars {
+  top: -30%;
+  left: 76%;
+}
+.wrapper .part_2 .main {
+  width: 30%;
+  height: 50%;
+  z-index: 100;
+  border: 1px solid black;
+  margin: 0 auto;
+  position: absolute;
+  top: 15%;
+  left: 45%;
+}
+.wrapper .part_2 .main img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_2 .main .section {
+  width: 60%;
+  height: 60%;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10%;
+}
+.wrapper .part_2 .main .section .imgWrapper {
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  display: inline-block;
+}
+.wrapper .part_2 .main .section .imgWrapper img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_2 .main .section p {
+  line-height: 3;
+}
+.wrapper .part_2 .main .section .r_span {
+  color: red;
+}
+.wrapper .part_3 .floor,
+.wrapper .part_3 .tree,
+.wrapper .part_3 .main,
+.wrapper .part_3 .pillars1,
+.wrapper .part_3 .pillars2 {
+  position: absolute;
+}
+.wrapper .part_3 .floor {
+  top: 49%;
+  left: 0%;
+  width: 100%;
+  height: 50%;
+}
+.wrapper .part_3 .floor img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_3 .tree {
+  width: 60%;
+  height: 60%;
+  top: 0%;
+  left: 15%;
+}
+.wrapper .part_3 .tree img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_3 .pillars1 {
+  top: 0%;
+  left: 70%;
+}
+.wrapper .part_3 .pillars2 {
+  top: 0%;
+  left: 15%;
+}
+.wrapper .part_3 .main {
+  width: 30%;
+  height: 50%;
+  z-index: 100;
+  border: 1px solid black;
+  margin: 0 auto;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+}
+.wrapper .part_3 .main img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_3 .main .section {
+  width: 80%;
+  height: 80%;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10%;
+}
+.wrapper .part_3 .main .section .imgWrapper {
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  display: inline-block;
+}
+.wrapper .part_3 .main .section .imgWrapper img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_3 .main .section p {
+  line-height: 3;
+}
+.wrapper .part_3 .main .section .r_span {
+  color: red;
 }

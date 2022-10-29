@@ -1,19 +1,261 @@
 @import "../../assets/css/reset.less";
 .wrapper{
-    width: 2000rem;
+    width: 360rem;
     height: 58rem;
     // background: cornflowerblue;
     display: flex;
+    // background-image: url('../../assets/img/左下/daiqi_p04_text.61ec2945..png.png');
+    // background-repeat: no-repeat;
+    // background-size:contain;
     .module{
         width: 120rem;
         height: 100%;
         border: 1px solid black;
         position: relative;
+        overflow: hidden;
+    }
+    .part_1,.part_2,.part_3,.part_4,.part_5,.part_6{
+        position: relative;
+        
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
     }
 
-    .part_1{     
-        
+    .part_1{
+        .cloud,.road,.main{
+            position: absolute;
+        }
+        .cloud{
+            
+            top: 8%;
+            left: 10%;
+            z-index: 10;
+        }
+        .road{
+            // position: absolute;
+            top: 11%;
+            left: 10%;
+        }
+        .main{
+            // position: absolute;
+            width: 12%;
+            height: 60%;
+            z-index: 100;
+            border: 1px solid black;
+            margin: 0 auto;
+            top: 20%;
+            left: 15%;
+            // transform: translate(-50% -50%);
+            // background: url("../../assets/img/左上/mengde_p7_text.81d3651a..png.png") no-repeat center ;
+            // background-size: cover;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .section{
+                // text-align: center;
+                // vertical-align: middle;
+                width: 80%;
+                height: 80%;
+                // border: 1px solid black;
+                font-size: 1.5rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                padding: 10%;
+                .imgWrapper{
+                    width: 100%;
+                    height: 100%;
+                    z-index: -10;
+                    display: inline-block;
+                    // position: absolute;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                p{
+                    line-height: 3;
+                }
+                .r_span{
+                    color: red;
+                }
+            }
+
            
-        
+        }
+    }
+
+    .part_2{
+        .cloud,.road,.main,.group,.floor,.tree,.pillars{
+            position: absolute;
+        }
+        .cloud{
+            position: absolute;
+            top: -10%;
+            left: -20%;
+            z-index: 10;
+        }
+        .road{
+            position: absolute;
+            top: 10%;
+            left: 0%;
+            transform: skew(-45deg);
+        }
+        .floor{
+            top: 31%;
+            left: 70%;
+        }
+        .tree{
+            top: 0%;
+            left: 70%;
+        }
+        .pillars{
+            top: -30%;
+            left: 76%;
+        }
+        .main{
+            // position: absolute;
+            width: 30%;
+            height: 50%;
+            z-index: 100;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: absolute;
+            top: 15%;
+            left: 45%;
+            // transform: translate(-50% -50%);
+            // background: url("../../assets/img/左上/mengde_p7_text.81d3651a..png.png") no-repeat center ;
+            // background-size: cover;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+         
+            .section{
+                // text-align: center;
+                // vertical-align: middle;
+                width: 60%;
+                height: 60%;
+                // border: 1px solid black;
+                font-size: 1.5rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                padding: 10%;
+                .imgWrapper{
+                    width: 100%;
+                    height: 100%;
+                    z-index: -10;
+                    display: inline-block;
+                    // position: absolute;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                p{
+                    line-height: 3;
+                }
+                .r_span{
+                    color: red;
+                }
+            }
+        }
+            
+    }
+
+    .part_3{
+        .floor,.tree,.main,.pillars1,.pillars2{
+            position: absolute;
+        }
+        .floor{
+            top: 49%;
+            left: 0%;
+            width: 100%;
+            height: 50%;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .tree{
+            width: 60%;
+            height: 60%;
+            top: 0%;
+            left: 15%;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .pillars1{
+            top: 0%;
+            left: 70%;
+        }
+        .pillars2{
+            top: 0%;
+            left: 15%;
+        }
+        .main{
+            // position: absolute;
+            width: 30%;
+            height: 50%;
+            z-index: 100;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            // transform: translate(-50% -50%);
+            // background: url("../../assets/img/左上/mengde_p7_text.81d3651a..png.png") no-repeat center ;
+            // background-size: cover;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+         
+            .section{
+                // text-align: center;
+                // vertical-align: middle;
+                width: 80%;
+                height: 80%;
+                // border: 1px solid black;
+                font-size: 1.5rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                padding: 10%;
+                .imgWrapper{
+                    width: 100%;
+                    height: 100%;
+                    z-index: -10;
+                    display: inline-block;
+                    // position: absolute;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                p{
+                    line-height: 3;
+                }
+                .r_span{
+                    color: red;
+                }
+            }
+        }
+            
     }
 }

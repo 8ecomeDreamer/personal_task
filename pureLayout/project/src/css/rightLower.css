@@ -175,7 +175,7 @@ html {
   display: none;
 }
 .wrapper {
-  width: 2000rem;
+  width: 120rem;
   height: 58rem;
   display: flex;
 }
@@ -184,4 +184,122 @@ html {
   height: 100%;
   border: 1px solid black;
   position: relative;
+  overflow: hidden;
+}
+.wrapper .part_1,
+.wrapper .part_2,
+.wrapper .part_3,
+.wrapper .part_4 {
+  position: relative;
+}
+.wrapper .part_1 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_1 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_1 .light,
+.wrapper .part_1 .branch1,
+.wrapper .part_1 .branch2,
+.wrapper .part_1 .weeds1,
+.wrapper .part_1 .weeds2,
+.wrapper .part_1 .stone,
+.wrapper .part_1 .main {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+.wrapper .part_1 .light {
+  top: 33%;
+  left: 18%;
+}
+.wrapper .part_1 .branch1 {
+  top: 55%;
+  left: 79%;
+}
+.wrapper .part_1 .branch2 {
+  top: 69%;
+  left: 73%;
+}
+.wrapper .part_1 .weeds1 {
+  top: 73%;
+  left: 2%;
+}
+.wrapper .part_1 .weeds2 {
+  top: 47%;
+  left: -10%;
+}
+.wrapper .part_1 .stone {
+  top: 33%;
+  left: 40%;
+}
+.wrapper .part_1 .main {
+  width: 30%;
+  height: 60%;
+  z-index: 100;
+  border: 1px solid black;
+  margin: 0 auto;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+}
+.wrapper .part_1 .main img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_1 .main .section {
+  width: 70%;
+  height: 60%;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10%;
+}
+.wrapper .part_1 .main .section .imgWrapper {
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  display: inline-block;
+}
+.wrapper .part_1 .main .section .imgWrapper img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_1 .main .section p {
+  line-height: 3;
+}
+.wrapper .part_1 .main .section .r_span {
+  color: red;
+}
+.wrapper .part_2 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_2 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_3 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_3 .bg img {
+  width: 100%;
+  height: 100%;
+}
+.wrapper .part_4 .bg {
+  width: 100%;
+  height: 100%;
+  z-index: -1000;
+}
+.wrapper .part_4 .bg img {
+  width: 100%;
+  height: 100%;
 }

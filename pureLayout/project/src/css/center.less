@@ -1,6 +1,6 @@
 @import "../../assets/css/reset.less";
 .wrapper{
-    width: 2000rem;
+    width: 120rem;
     height: 58rem;
     // background: cornflowerblue;
     display: flex;
@@ -9,11 +9,101 @@
         height: 100%;
         border: 1px solid black;
         position: relative;
+        overflow: hidden;
+    }
+    .part_1,.part_2,.part_3,.part_4{
+        position: relative;
     }
 
     .part_1{     
-        
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        } 
+        .ball,.mountain,.pillars{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+        }
+        .ball{
+            top: 83%;
+            left: 30%;
+            width: 10%;
+            height: 20%;
+            border: 1px solid black;
+            background-image: url(http://127.0.0.1:5500/personal_tasks/personal_task/pureLayout/project/assets/img/中间/user_p02_mola.db6478ef..png.png);
+            background-position: 0% 0%;
+            z-index: 30;
+            transform: rotate(270deg);
+        }
+        .pillars{
+            top: 10%;
+            left: 86%;
+            z-index: 30;
+            
+        }
+        .mountain{
+            top: 80%;
+            left: 66%;
+            width: 50%;
+            height: 17%;
+            background-image: url(http://127.0.0.1:5500/personal_tasks/personal_task/pureLayout/project/assets/img/中间/user_p03_hua.4d4693b2..png.png);
+            background-position: 0% 100%;
+        }
+        .main{
+            // position: absolute;
+            width: 30%;
+            height: 60%;
+            z-index: 100;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            // transform: translate(-50% -50%);
+            // background: url("../../assets/img/左上/mengde_p7_text.81d3651a..png.png") no-repeat center ;
+            // background-size: cover;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .section{
+                // text-align: center;
+                // vertical-align: middle;
+                width: 70%;
+                height: 70%;
+                // border: 1px solid black;
+                font-size: 1.5rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                padding: 10%;
+                .imgWrapper{
+                    width: 100%;
+                    height: 100%;
+                    z-index: -10;
+                    display: inline-block;
+                    // position: absolute;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                p{
+                    line-height: 3;
+                }
+                .r_span{
+                    color: red;
+                }
+            }
+
            
-        
+        }
     }
 }

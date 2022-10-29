@@ -1,6 +1,6 @@
 @import "../../assets/css/reset.less";
 .wrapper{
-    width: 2000rem;
+    width: 120rem;
     height: 58rem;
     // background: cornflowerblue;
     display: flex;
@@ -9,11 +9,135 @@
         height: 100%;
         border: 1px solid black;
         position: relative;
+        overflow: hidden;
+    }
+    .part_1,.part_2,.part_3,.part_4{
+        position: relative;
     }
 
     .part_1{     
-        
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        } 
+        .light,.branch1,.branch2,.weeds1,.weeds2,.stone,.main{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+        }
+        .light{
+            top: 33%;
+            left: 18%;
+        }
+        .branch1{
+            top: 55%;
+            left: 79%;
+        }
+        .branch2{
+            top: 69%;
+            left: 73%;
+        }
+
+        .weeds1{
+            top: 73%;
+            left: 2%;
+        }
+        .weeds2{
+            top: 47%;
+            left: -10%;
+        }
+
+        .stone{
+            top: 33%;
+            left: 40%;
+        }
+        .main{
+            // position: absolute;
+            width: 30%;
+            height: 60%;
+            z-index: 100;
+            border: 1px solid black;
+            margin: 0 auto;
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            // transform: translate(-50% -50%);
+            // background: url("../../assets/img/左上/mengde_p7_text.81d3651a..png.png") no-repeat center ;
+            // background-size: cover;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .section{
+                // text-align: center;
+                // vertical-align: middle;
+                width: 70%;
+                height: 60%;
+                // border: 1px solid black;
+                font-size: 1.5rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                padding: 10%;
+                .imgWrapper{
+                    width: 100%;
+                    height: 100%;
+                    z-index: -10;
+                    display: inline-block;
+                    // position: absolute;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                p{
+                    line-height: 3;
+                }
+                .r_span{
+                    color: red;
+                }
+            }
+
            
-        
+        }
+    }
+    .part_2{
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        } 
+    }
+    .part_3{
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        } 
+    }
+    .part_4{
+        .bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        } 
     }
 }
