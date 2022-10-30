@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>center</title>
-    <link rel="stylesheet/less" type="text/css" href="../css/center.less" />
+    <!-- <link rel="stylesheet/less" type="text/css" href="../css/center.less" /> -->
+    <link rel="stylesheet" type="text/css" href="../css/center.css" />
 </head>
 <body>
     <div class="wrapper">
@@ -14,7 +15,7 @@
                 <div class="bg">
                     <img  src="../../assets/img/中间/use_p06_text.dc3dc3ab..png.png">
                 </div>
-                <div class="ball" ></div>
+                <!-- <div class="ball" ></div> -->
                 <img class="pillars"  src="../../assets/img/中间/user_p01_zhu_c.05ebfee3..png.png">
                 <!-- <img class="tree" src="../../assets/img/中间/xumi_p2_tree_a.cc83427e..png.png"> -->
                 <div class="mountain"></div>
@@ -29,6 +30,13 @@
                         </p>
                     </section>
                 </main>
+                
+            </div>
+
+            <div class="controller">
+                <button class="custom-btn btn-5" id="prev">上一页</button>
+                <button class="custom-btn btn-5" onclick="window.location='index.html'"><span>返回首页</span></button>
+                <button class="custom-btn btn-5" id="next">下一页</button>
             </div>
             <!-- <div class="module part_2">
                 
@@ -64,4 +72,41 @@
 
 
 <!-- 引入 less -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js"></script> -->
+<script src="../js/less.min.js"></script>
+
+<script>
+
+    // 声明
+    function moveRight(e) {
+        let wrapper = document.querySelector("#wrapper")
+        // console.log(e)
+        // var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft
+        // var scrollWidth =document.documentElement.scrollWidth ||document.body.scrollWidth 
+        // scrollLeft += 1200
+        // 判断是否存在滚动条
+        const step = 1920
+        document.documentElement.scrollLeft += step
+        console.log(document.documentElement.scrollLeft,document.documentElement.scrollWidth)
+        // if( document.documentElement.scrollLeft <  document.documentElement.scrollWidth -step ){
+           
+            
+        // }
+    }
+    function moveLeft() {
+        const step = 1920
+        document.documentElement.scrollLeft -= step
+        console.log(document.documentElement.scrollLeft,document.documentElement.scrollWidth)
+    }
+
+    // 调用
+    window.onload = function () {
+        let prev = document.querySelector("#prev")
+        let next = document.querySelector("#next")
+        // var btn = document.getElementById("button");  
+        prev.addEventListener('click', moveLeft, false);
+        next.addEventListener('click', moveRight, false);
+        
+    }
+
+</script>
