@@ -190,210 +190,23 @@ html {
   width: 100%;
   height: 100%;
 }
-.wrapper .title #primary_nav_wrap {
-  margin-top: 15px;
+.wrapper .title,
+.wrapper .main {
+  width: 100%;
+  padding: 10px;
 }
-.wrapper .title #primary_nav_wrap ul {
-  list-style: none;
-  position: relative;
-  float: left;
-  margin: 0;
-  padding: 0;
+.wrapper .title {
+  margin-bottom: 2rem;
 }
-.wrapper .title #primary_nav_wrap ul a {
-  display: block;
-  color: #333;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 32px;
-  padding: 0 15px;
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+.wrapper .title ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
-.wrapper .title #primary_nav_wrap ul li {
-  position: relative;
-  float: left;
-  margin: 0;
-  padding: 0;
-}
-.wrapper .title #primary_nav_wrap ul li.current-menu-item {
-  background: #ddd;
-}
-.wrapper .title #primary_nav_wrap ul li:hover {
-  background: #f6f6f6;
-}
-.wrapper .title #primary_nav_wrap ul ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  padding: 0;
-}
-.wrapper .title #primary_nav_wrap ul ul li {
-  float: none;
-  width: 200px;
-}
-.wrapper .title #primary_nav_wrap ul ul a {
-  line-height: 120%;
-  padding: 10px 15px;
-}
-.wrapper .title #primary_nav_wrap ul ul ul {
-  top: 0;
-  left: 100%;
-}
-.wrapper .title #primary_nav_wrap ul li:hover > ul {
-  display: block;
+.wrapper .title ul a {
+  color: black;
+  font-size: 1.5rem;
 }
 .wrapper .main {
-  width: 80%;
-  height: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  grid-column-gap: 0;
-  grid-row-gap: 0;
-}
-.wrapper .main .form {
-  background: rgba(19, 35, 47, 0.9);
-  padding: 40px;
-  max-width: 600px;
-  margin: 40px auto;
-  border-radius: 4px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-}
-.wrapper .main .tab-group {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 40px 0;
-}
-.wrapper .main .tab-group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.wrapper .main .tab-group li a {
-  display: block;
-  text-decoration: none;
-  padding: 15px;
-  background: rgba(160, 179, 176, 0.25);
-  color: #a0b3b0;
-  font-size: 20px;
-  float: left;
-  width: 50%;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.5s ease;
-}
-.wrapper .main .tab-group li a:hover {
-  background: #1ab188;
-  color: #ffffff;
-}
-.wrapper .main .tab-group .active a {
-  background: #1ab188;
-  color: #ffffff;
-}
-.wrapper .main .tab-content > div:last-child {
-  display: none;
-}
-.wrapper .main h1 {
-  text-align: center;
-  color: #ffffff;
-  font-weight: 300;
-  margin: 0 0 40px;
-}
-.wrapper .main label {
-  position: absolute;
-  transform: translateY(6px);
-  left: 13px;
-  color: rgba(255, 255, 255, 0.5);
-  transition: all 0.25s ease;
-  -webkit-backface-visibility: hidden;
-  pointer-events: none;
-  font-size: 22px;
-}
-.wrapper .main label .req {
-  margin: 2px;
-  color: #1ab188;
-}
-.wrapper .main label.active {
-  transform: translateY(50px);
-  left: 2px;
-  font-size: 14px;
-}
-.wrapper .main label.active .req {
-  opacity: 0;
-}
-.wrapper .main label.highlight {
-  color: #ffffff;
-}
-.wrapper .main input,
-.wrapper .main textarea {
-  font-size: 22px;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 5px 10px;
-  background: none;
-  background-image: none;
-  border: 1px solid #a0b3b0;
-  color: #ffffff;
-  border-radius: 0;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-.wrapper .main input:focus,
-.wrapper .main textarea:focus {
-  outline: 0;
-  border-color: #1ab188;
-}
-.wrapper .main textarea {
-  border: 2px solid #a0b3b0;
-  resize: vertical;
-}
-.wrapper .main .field-wrap {
-  position: relative;
-  margin-bottom: 40px;
-}
-.wrapper .main .top-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.wrapper .main .top-row > div {
-  float: left;
-  width: 48%;
-  margin-right: 4%;
-}
-.wrapper .main .top-row > div:last-child {
-  margin: 0;
-}
-.wrapper .main .button {
-  border: 0;
-  outline: none;
-  border-radius: 0;
-  padding: 15px 0;
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: #1ab188;
-  color: #ffffff;
-  transition: all 0.5s ease;
-  -webkit-appearance: none;
-}
-.wrapper .main .button:hover,
-.wrapper .main .button:focus {
-  background: #a0b3b0;
-}
-.wrapper .main .button-block {
-  display: block;
-  width: 100%;
-}
-.wrapper .main .forgot {
-  margin-top: -20px;
-  text-align: right;
+  background: chocolate;
 }
