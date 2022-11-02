@@ -196,8 +196,8 @@ html {
   padding: 10px;
 }
 .wrapper .title {
-  color: white;
-  margin-bottom: 10rem;
+  color: black;
+  margin-bottom: 2rem;
   padding: 1rem;
 }
 .wrapper .title .Content {
@@ -252,10 +252,32 @@ html {
 .wrapper .main {
   width: 100%;
   height: 75%;
-}
-.wrapper .main .imgWrapper {
-  width: 90%;
   margin: 0 auto;
+}
+.wrapper .main .littleUl,
+.wrapper .main .imgWrapper,
+.wrapper .main .firImg {
+  width: 100%;
+}
+.wrapper .main .firImg {
+  height: 250px;
+}
+.wrapper .main .firImg img {
+  width: 33%;
+  height: 100%;
+  object-fit: co;
+}
+.wrapper .main .littleUl ul {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 25, 252, 0.622);
+}
+.wrapper .main .littleUl ul li {
+  padding: 0.5rem;
+}
+.wrapper .main .littleUl ul li a {
+  color: white;
+  font-size: 1.5rem;
 }
 .wrapper .main .imgWrapper img {
   width: 100%;

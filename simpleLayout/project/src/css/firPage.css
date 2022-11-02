@@ -242,15 +242,14 @@ html {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  background: rgba(10, 10, 167, 0.3);
+  padding: 10px;
 }
 .wrapper .title .primary_nav_wrap ul a {
   color: white;
   font-size: 1.5rem;
 }
 .wrapper .main .form {
-  position: absolute;
-  top: 0;
-  left: 0;
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
   max-width: 600px;
@@ -391,4 +390,22 @@ html {
 .wrapper .main .forgot {
   margin-top: -20px;
   text-align: right;
+}
+.wrapper .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  background: rgba(10, 10, 167, 0.5);
+}
+.wrapper .footer .wrapper {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: large;
+  color: white;
+}
+.wrapper .footer .wrapper span {
+  display: inline-block;
+  margin: 10px 20px;
 }

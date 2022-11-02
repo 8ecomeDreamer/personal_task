@@ -242,18 +242,43 @@ html {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  background: rgba(10, 10, 167, 0.3);
+  padding: 10px;
 }
 .wrapper .title .primary_nav_wrap ul a {
   color: white;
   font-size: 1.5rem;
 }
 .wrapper .main {
-  width: 100%;
+  width: 90%;
   height: 75%;
   text-align: center;
+  margin: 0 auto;
 }
-.wrapper .main img {
+.wrapper .main .imgWrapper {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+}
+.wrapper .main .imgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.wrapper .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  background: rgba(10, 10, 167, 0.5);
+}
+.wrapper .footer .wrapper {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: large;
+  color: white;
+}
+.wrapper .footer .wrapper span {
+  display: inline-block;
+  margin: 10px 20px;
 }
