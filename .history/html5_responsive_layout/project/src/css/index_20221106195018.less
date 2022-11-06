@@ -1,0 +1,49 @@
+@import "./reset.css";
+
+@header:5%;
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: #e4e4e4;
+    padding: 1rem;
+    overflow: hidden;
+    .header,.main{
+        // border: 1px solid red;
+        width: 100%;
+    }
+    .header{
+        height: @header;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        .OptionsPage{
+            display: inline-block;
+            // background: red;
+            width: 6rem;
+            text-align: center;
+            color: #18897a;
+            letter-spacing: 1px;
+        }
+        .detailsInfo{
+            display: inline-block;
+        }
+    }
+    .main{
+        height: calc(~"100% - 2*@{header}");
+        background: white;
+        // height: 90px;
+        .aside{
+            width: 25%;
+            height: 100%;
+            border: 1px solid #18897a;
+        }
+        .section{
+            width: 50%;
+            border: 1px solid #72a345;
+            height: 100%;
+        }
+    }
+}
