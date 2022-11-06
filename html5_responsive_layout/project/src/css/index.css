@@ -1,0 +1,33 @@
+@import "reset.css";
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: #e4e4e4;
+  padding: 1rem;
+  overflow: hidden;
+}
+.wrapper .header,
+.wrapper .main {
+  border: 1px solid red;
+  width: 100%;
+}
+.wrapper .header {
+  height: 5%;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+}
+.wrapper .header .OptionsPage {
+  display: inline-block;
+  width: 6rem;
+  text-align: center;
+  color: #18897a;
+}
+.wrapper .header .detailsInfo {
+  display: inline-block;
+}
+.wrapper .main {
+  height: calc(100% - 2*5%);
+}
