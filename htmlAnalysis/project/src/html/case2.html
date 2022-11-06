@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>案例2</title>
+  </head>
+  <body>
+    <h1>
+      <span>Do<hide>n't</hide></span>
+      <span><hide>Qu</hide>it</span>
+    </h1>
+  </body>
+</html>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 第二步：对页面文字做初步的效果 */
+h1{
+  margin: 0;
+  padding: 0;
+  font-size: 10em;
+  transition: 0.5s;
+}
+
+h1 span{
+  position: relative;
+  text-transform: uppercase;
+  display: block;
+  transition: 0.5s;
+}
+
+/* 第三步：用两个伪元素实现红线效果 */
+h1 span:nth-child(1)::before{
+  content: "";
+  position: absolute;
+  top: calc(50% - 15px);
+  right: 0;
+  width: 50%;
+  height: 30px;
+  background: #f00;
+  /* 下面两行代码规定了transform的起始方向和量 */
+  transform-origin:right ;
+  transform: scale(0);
+  transition: 0.5s;
+  z-index:1;
+}
+
+/* 为第一个伪元素添加hover效果 */
+h1:hover span:nth-child(1)::before{
+  transform: scaleX(1);
+}
+
+/* 接下来是第二个伪元素，和上面的几乎一样，只需要微调 */
+h1 span:nth-child(2)::before{
+  content: "";
+  position: absolute;
+  top: calc(50% - 15px);
+  left: 0;
+  width: 50%;
+  height: 30px;
+  background: #f00;
+  /* 下面两行代码规定了transform的起始方向和量 */
+  transform-origin:left ;
+  transform: scale(0);
+  transition: 0.5s;
+  z-index:1;
+}
+
+/* 为第一个伪元素添加hover效果 */
+h1:hover span:nth-child(2)::before{
+  transform: scaleX(1);
+}
+
+/* 第四步：让两个hide标签在hover效果之后隐藏（透明度实现） */
+h1 span hide{
+  transition: 0.5s;
+  transition-delay: 1s;
+}
+
+h1:hover span hide{
+  transition-delay: 1s;
+  color: #f00;
+  opacity: 0;
+}
+
+/* 第五步：调整padding效果让整个效果更自然 */
+h1:hover span:nth-child(1) hide{
+  padding-right: 30px;
+}
+
+h1:hover span:nth-child(2) hide{
+  padding-right: 30px;
+}
+
+/* 完工！！！ */
+</style>
