@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜单悬停 Makima-SN1572</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">关于</a></li>
+        <li><a href="#">设置</a></li>
+        <li><a href="#">案例</a></li>
+        <li><a href="#">关于我们</a></li>
+    </ul>
+</body>
+
+</html>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(200deg, skyblue, pink);
+    }
+
+    ul {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        list-style: none;
+        transition: 0.5s;
+    }
+
+    ul li a {
+        position: relative;
+        display: block;
+        color: black;
+        font-size: 35px;
+        margin: 0 30px;
+        text-align: center;
+        text-decoration: double;
+    }
+
+    ul li a:hover {
+        opacity: 0.2;
+        filter: blur(2px);
+    }
+
+    ul li:hover {
+        opacity: 1;
+        filter: blur(0px);
+    }
+</style>

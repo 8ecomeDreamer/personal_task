@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写轮眼 MrLi2000</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .eye{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: 
+            radial-gradient(white 13%,black 13%,black 38%, transparent 38%,transparent 61%,black 61%),
+            linear-gradient(black , black) no-repeat center top/15% 50%,
+            /* linear-gradient(to right, transparent 45%,black 45%, black 55%,transparent 55%) no-repeat 0 0 / 100% 50%, */
+            linear-gradient(red 50%, transparent 50%),
+            linear-gradient(-30deg,transparent 47%,black 47%, black 60%,transparent 60%),
+            linear-gradient(30deg,transparent 47%,black 47%, black 60%,transparent 60%),
+            linear-gradient(red , red);
+            margin-left: 50px;
+        }
+
+
+        .left{
+            float: left;
+            overflow: hidden;
+            width: 200px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 0% 100% 0 100%;
+        }
+
+        .left,
+        .right{
+            float: left;
+            overflow: hidden;
+            width: 200px;
+            height: 100px;
+            background-color: #ccc;
+        }
+        .left{
+            border-radius: 0% 100% 0% 100%;
+        }
+
+        .right{
+            border-radius: 100% 0% 100% 0%;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <div class="eye"></div>
+    </div>   
+    <div class="right">
+        <div class="eye"></div>
+    </div>   
+
+
+ 
+</body>
+</html>

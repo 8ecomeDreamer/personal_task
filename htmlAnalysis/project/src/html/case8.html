@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太阳系 Makima-SN1572</title>
+    <!-- <link rel="stylesheet" href="./css/sun.css"> -->
+</head>
+
+<body>
+    <div class="sun">
+        <div class="earth">
+            <div class="moon"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    * {
+        /* 初始化 */
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        /* 自定义属性 */
+        --s: #f39c12;
+        --e: #3498db;
+        --m: #1abc9c;
+    }
+
+    /* 太阳 */
+    .sun {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: var(--s);
+        /* 发光 */
+        box-shadow: 0 0 10px var(--s),
+            0 0 10px var(--s),
+            0 0 10px var(--s),
+            0 0 10px var(--s);
+
+        /* 动画 */
+        animation: rotate 36.5s linear infinite;
+
+    }
+
+    /* 地球轨道 */
+    .sun::after {
+        content: "";
+        width: 330px;
+        height: 330px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #fff;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    /* 地球 */
+    .earth {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 200px;
+        border-radius: 50%;
+        background-color: var(--e);
+        box-shadow: 0 0 10px var(--e),
+            0 0 20px var(--e),
+            0 0 30px var(--e),
+            0 0 40px var(--e);
+        animation: rotate 3s linear infinite;
+
+    }
+
+    /* 月球轨道 */
+    .earth::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 84px;
+        height: 84px;
+        border: 1px solid gray;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+
+    }
+
+    /* 月球 */
+    .moon {
+        position: absolute;
+        left: 50px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: var(--m);
+        box-shadow: 0 0 5px var(--m),
+            0 0 10px var(--m),
+            0 0 20px var(--m),
+    }
+
+    @keyframes rotate {
+        to {
+            transform: rotateZ(360deg);
+        }
+    }
+</style>
