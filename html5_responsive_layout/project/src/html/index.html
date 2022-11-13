@@ -9,7 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
-    <link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../css/iconfont/iconfont.css" />
+    <!-- wangeditor -->
+    <link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -44,16 +46,16 @@
         <main class="main">
             <aside class="aside left">
                 <div class="header">
-                    <span>对话列表</span>
+                    <!-- <span>对话列表</span>
                     <div class="btns">
                         <button class="btn msg">消息</button>
                         <button class="btn switch">接入</button>
                         <button class="btn default">默认</button>
                         <button class="btn">图标</button>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="content">
-                    <div class="item">
+                    <!-- <div class="item">
                         <div class="avatar">
                             <i class="inconfont icon-touxiang"></i>
                         </div>
@@ -65,10 +67,86 @@
                                 <span >>48h</span>
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </aside>
-            <section class="section"></section>
+            <section class="section">
+                <div class="header">
+                    <span>茅先生</span>
+                    <div class="btns">
+                        <div class="item">
+                            <i class="iconfont icon-daochu"></i>
+                            <span>转存工单</span>
+                        </div>
+                        <div class="item">
+                            <i class="iconfont icon-daochu"></i>
+                            <span>服务小结</span>
+                        </div>
+                        <div class="item">
+                            <i class="iconfont icon-fenxiang"></i>
+                            <span>转接坐席</span>
+                        </div>
+                        <div class="item">
+                            <i class="iconfont icon-jieshu"></i>
+                            <span>结束对话</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="commonChat">
+                        <div class="item right">
+                            
+                            <div class="chatContent">
+                                <span class="date">2022-06-15</span>
+                                <span class="time">18:39:22</span>
+                                <span class="user">杨洋</span>
+                                <div class="sendContent">天气阴转多云，下午有暴风雨</div>
+                            </div>
+                            <div class="avatar">
+                                <i class="iconfont icon-touxiang"></i>
+                            </div>
+                        </div>
+                        <div class="item left">
+                            <div class="avatar">
+                                <i class="iconfont icon-touxiang"></i>
+                            </div>
+                            <div class="chatContent">
+                                <span class="date">2022-06-15</span>
+                                <span class="time">18:39:22</span>
+                                <span class="user">杨洋</span>
+                                <div class="sendContent">天气阴转多云，下午有暴风雨</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- <div class="HotIssues">
+                        <span class="questionTitle">热点问题:</span>
+                        <div class="questions">
+                            <div class="question">1.<span class="que">今天吃什么？</span></div>
+                            <div class="question">2.<span class="que">明天吃什么？</span></div>
+                            <div class="question">3.<span class="que">后天吃什么？</span></div>
+                            <div class="question">4.<span class="que">昨天吃什么？</span></div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="footer">
+                    <div class="inputContent">
+                        <div id="editor—wrapper">
+                            <div id="toolbar-container">
+                                <!-- 工具栏 -->
+                            </div>
+                            <div id="editor-container">
+                                <!-- 编辑器 -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controller">
+                        <div class="btn">发送</div>
+                        <i class="iconfont icon-xiangxia"></i>
+                    </div>
+                </div>
+            </section>
             <aside class="aside right"></aside>
         </main>
     </div>
@@ -81,3 +159,66 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
+<!-- 引入jquery -->
+<script src="../js/jquery.min.js"></script>
+
+<!--  引入wangeditor  -->
+<script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
+<script>
+    // 声明
+    function loadWangEditor() {
+        const { createEditor, createToolbar } = window.wangEditor
+
+        const editorConfig = {
+            placeholder: 'Type here...',
+            onChange(editor) {
+                const html = editor.getHtml()
+                console.log('editor content', html)
+                // 也可以同步到 <textarea>
+            }
+        }
+
+        const editor = createEditor({
+            selector: '#editor-container',
+            html: '<p><br></p>',
+            config: editorConfig,
+            mode: 'default', // or 'simple'
+        })
+
+        const toolbarConfig = {}
+        toolbarConfig.excludeKeys = [
+            'blockquote',
+            'bgColor',
+            'group-more-style', // 排除菜单组，写菜单组 key 的值即可
+            'fontSize',
+            "fontFamily",
+            'lineHeight',
+            'bulletedList',
+            'numberedList',
+            'todo',
+            'group-justify',
+            'group-indent',
+            'insertLink',
+            'group-image',
+            'group-video',
+            "insertTable",
+            'codeBlock',
+            'divider',
+            'fullScreen'
+        ]
+
+        const toolbar = createToolbar({
+            editor,
+            selector: '#toolbar-container',
+            config: toolbarConfig,
+            mode: 'default', // or 'simple'
+        })
+
+        console.log(toolbar.getConfig().toolbarKeys)
+    }
+
+
+    // 调用
+    loadWangEditor()
+
+</script>

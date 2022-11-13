@@ -11,6 +11,7 @@
     .header,.main{
         // border: 1px solid red;
         width: 100%;
+        overflow: hidden;
     }
     .header{
         height: @header;
@@ -45,6 +46,95 @@
             width: 55%;
             border: 1px solid #72a345;
             height: 100%;
+            .header{
+                display: flex;
+                background: whitesmoke;
+                padding: 20px 10px;
+                margin-bottom: 5px;
+                .btns{
+                    display: flex;
+                    .item{
+                        background: #43a44f;
+                        border-radius: 2px;
+                        padding: 8px;
+                        margin-right: 5px;
+                        color: white;
+                        font-size: 12px;
+                        cursor: pointer;
+                        &:nth-last-child(1){
+                            background: rgba(211, 88, 54, 0.94);
+                        }
+                    }
+                }
+            }
+            .content{
+                height: 60%;
+                margin-bottom: 5px;
+                overflow: scroll;
+                // background: red;
+                position: relative;
+                .commonChat{
+                    .item{
+                        width: 100%;
+                        background: blue;
+                        text-align: right;
+                        padding: 10px;
+                        display: flex;
+                        .avatar{
+                            i{
+                                font-size: 30px;
+                            }
+                        }
+                    }
+                    .item.right{
+                        float: right;
+                    }
+                }
+                .HotIssues{
+                    width: 100%;
+                    // background: red;
+                    padding: 5px 0px;
+                    // padding-left: 20px;
+                    position: absolute;
+                    bottom: 0;
+                    .questionTitle{
+                        display: inline-block;
+                        margin-bottom: 5px;
+                    }
+                    .questions{
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                        .question{
+                            width: 40%;
+                            text-align: center;
+                            background: rgba(200, 198, 198,.4);
+                            border-radius: 5px;
+                            margin-bottom: 5px;
+                            margin-right: 5px;
+
+                        }
+                    }
+                }
+            }
+            .footer{
+                height: 32%;
+                // background: blue;
+                .controller{
+                    text-align: right;
+                    padding: 2px 10px;
+ 
+                    .btn{
+                        background: #41864a;
+                        padding: 2px 5px;
+                        font-size: 10px;
+                        color: white;
+                    }
+                    i{
+                        cursor: pointer;
+                    }
+                }
+            }
         }
         .aside.left{
             width: 20%;
@@ -101,3 +191,11 @@
         }
     }
 }
+
+// wangeditor
+#editor—wrapper {
+    border: 1px solid #ccc;
+    z-index: 100; /* 按需定义 */
+  }
+  #toolbar-container { border-bottom: 1px solid #ccc; }
+  #editor-container { height: 120px; }
