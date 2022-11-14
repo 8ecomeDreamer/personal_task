@@ -164,7 +164,7 @@
 .wrapper .main .aside.right {
   width: 25%;
   background: #e6e6e6;
-  padding-left: 5px;
+  padding-left: 10px;
 }
 .wrapper .main .aside.right .menu {
   padding: 10px;
@@ -196,6 +196,18 @@
 }
 .wrapper .main .aside.right .sign .btn.blue {
   background: blue;
+}
+.wrapper .main .aside.right .listGroup {
+  background: white;
+  margin-bottom: 10px;
+  padding-top: 10px 20px 0;
+}
+.wrapper .main .aside.right .listGroup .li {
+  margin-bottom: 5px;
+  list-style: disc;
+}
+.wrapper .main .aside.right .listGroup .li.green {
+  color: green;
 }
 #editor—wrapper {
   border: 1px solid #ccc;
