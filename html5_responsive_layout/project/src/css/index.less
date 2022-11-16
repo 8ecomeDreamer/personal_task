@@ -36,7 +36,9 @@
         height: calc(~"100% - 2*@{header}");
         background: white;
         display: flex;
-
+        .aside,.section{
+            overflow: hidden;
+        }
         // height: 90px;
         .aside{
             height: 100%;
@@ -72,30 +74,38 @@
                 margin-bottom: 5px;
                 overflow: scroll;
                 // background: red;
+                // background: blue;
                 position: relative;
-                .commonChat{
-                    .item{
-                        width: 100%;
-                        // background: blue;
-                        text-align: right;
-                        padding: 10px;
-                        display: flex;
-                        .avatar{
-                            i{
-                                font-size: 30px;
-                            }
+                // display: flex;
+                // flex-wrap: wrap;
+                // justify-content: flex-end;
+                .item{
+                    width: 100%;
+                    margin-bottom: 5px;
+                    // background: red;
+                    // text-align: right;
+                    padding: 10px;
+                    display: flex;
+                    .avatar{
+                        i{
+                            font-size: 30px;
                         }
                     }
-                    .item.right{
-                        float: right;
-                    }
                 }
+                // .item.right{
+                //     position: absolute;
+                //     right: 0;
+                // }
+                // .item.left{
+                //     position: absolute;
+                //     left: 0;
+                // }
                 .HotIssues{
                     width: 100%;
                     // background: red;
                     padding: 5px 0px;
-                    // padding-left: 20px;
-                    position: absolute;
+                    z-index: 1000;
+                    position: sticky;
                     bottom: 0;
                     .questionTitle{
                         display: inline-block;
@@ -149,10 +159,11 @@
                 .btns{
                     display: inline-block ;
                     background: white;
-                    .btn{
+                    .button{
                         color: #41864a;
                         border: 1px solid black;
                         border-radius: 2px;
+                        padding: 5px;
                         // width: 1rem;
                         // height: 2rem;
                         .msg{
@@ -170,8 +181,27 @@
                 padding-left: 10px;
                 .item{
                     padding: 20px 0;
+                    display: flex;
+                    .avatar{
+                        width: 10%;
+                        display: inline-block;
+                        margin-right: 10px;
+                        i{
+                            font-size: 20px;
+                            text-align: center;
+                            line-height: 2;
+                            color: cyan;
+                        }
+                    }
                     .info{
+                        width: 90%;
+                        .userName{
+                            color: rgb(28, 162, 41);
+                            margin-bottom: 15px;
+                            line-height: 0.5;
+                        }
                         .time{
+                            font-size: 18px;
                             span{
                                 &:nth-child(3){
                                     padding: 0 10px;
@@ -207,29 +237,39 @@
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 10px;
+                padding-right: 5px;
                 span{
                     display: inline-block;
                 }
-                .btn{
-                    padding: 5px;
+                .button{
+                    padding: 5px 10px;
+                    display: inline-block;
+                    cursor: pointer;
                 }
-                .btn.orange{
-                    background: orange;
+                .button.orange{
+                    background: rgb(234, 183, 88);
+                    border-radius: 5px;
                 }
-                .btn.blue{
-                    background: blue;
+                .button.blue{
+                    background: rgb(21, 116, 232);
+                    border-radius: 3px;
                 }
+
             }
             .listGroup{
                 background: white;
                 // padding-left: 10px 0 0 10px;
                 margin-bottom: 10px;
-                padding-top: 10px 20px 0;
+                padding: 10px;
                 .li{
-                    margin-bottom: 5px;
+                    margin-bottom: 10px;
                     list-style: disc;
+                    font-size: 12px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
                 }
-                .li.green{
+                .green{
                     color: green;
                 }
             }

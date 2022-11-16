@@ -34,6 +34,10 @@
   background: white;
   display: flex;
 }
+.wrapper .main .aside,
+.wrapper .main .section {
+  overflow: hidden;
+}
 .wrapper .main .aside {
   height: 100%;
   border: 1px solid #18897a;
@@ -70,22 +74,20 @@
   overflow: scroll;
   position: relative;
 }
-.wrapper .main .section .content .commonChat .item {
+.wrapper .main .section .content .item {
   width: 100%;
-  text-align: right;
+  margin-bottom: 5px;
   padding: 10px;
   display: flex;
 }
-.wrapper .main .section .content .commonChat .item .avatar i {
+.wrapper .main .section .content .item .avatar i {
   font-size: 30px;
-}
-.wrapper .main .section .content .commonChat .item.right {
-  float: right;
 }
 .wrapper .main .section .content .HotIssues {
   width: 100%;
   padding: 5px 0px;
-  position: absolute;
+  z-index: 1000;
+  position: sticky;
   bottom: 0;
 }
 .wrapper .main .section .content .HotIssues .questionTitle {
@@ -137,16 +139,17 @@
   display: inline-block;
   background: white;
 }
-.wrapper .main .aside.left .header .btns .btn {
+.wrapper .main .aside.left .header .btns .button {
   color: #41864a;
   border: 1px solid black;
   border-radius: 2px;
+  padding: 5px;
 }
-.wrapper .main .aside.left .header .btns .btn .msg {
+.wrapper .main .aside.left .header .btns .button .msg {
   margin-right: 0;
 }
-.wrapper .main .aside.left .header .btns .btn .switch,
-.wrapper .main .aside.left .header .btns .btn .default {
+.wrapper .main .aside.left .header .btns .button .switch,
+.wrapper .main .aside.left .header .btns .button .default {
   margin-left: 0;
   margin-right: 0;
 }
@@ -156,6 +159,29 @@
 }
 .wrapper .main .aside.left .content .item {
   padding: 20px 0;
+  display: flex;
+}
+.wrapper .main .aside.left .content .item .avatar {
+  width: 10%;
+  display: inline-block;
+  margin-right: 10px;
+}
+.wrapper .main .aside.left .content .item .avatar i {
+  font-size: 20px;
+  text-align: center;
+  line-height: 2;
+  color: cyan;
+}
+.wrapper .main .aside.left .content .item .info {
+  width: 90%;
+}
+.wrapper .main .aside.left .content .item .info .userName {
+  color: #1ca229;
+  margin-bottom: 15px;
+  line-height: 0.5;
+}
+.wrapper .main .aside.left .content .item .info .time {
+  font-size: 18px;
 }
 .wrapper .main .aside.left .content .item .info .time span:nth-child(3) {
   padding: 0 10px;
@@ -184,29 +210,38 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  padding-right: 5px;
 }
 .wrapper .main .aside.right .sign span {
   display: inline-block;
 }
-.wrapper .main .aside.right .sign .btn {
-  padding: 5px;
+.wrapper .main .aside.right .sign .button {
+  padding: 5px 10px;
+  display: inline-block;
+  cursor: pointer;
 }
-.wrapper .main .aside.right .sign .btn.orange {
-  background: orange;
+.wrapper .main .aside.right .sign .button.orange {
+  background: #eab758;
+  border-radius: 5px;
 }
-.wrapper .main .aside.right .sign .btn.blue {
-  background: blue;
+.wrapper .main .aside.right .sign .button.blue {
+  background: #1574e8;
+  border-radius: 3px;
 }
 .wrapper .main .aside.right .listGroup {
   background: white;
   margin-bottom: 10px;
-  padding-top: 10px 20px 0;
+  padding: 10px;
 }
 .wrapper .main .aside.right .listGroup .li {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   list-style: disc;
+  font-size: 12px;
 }
-.wrapper .main .aside.right .listGroup .li.green {
+.wrapper .main .aside.right .listGroup .li:last-child {
+  margin-bottom: 0;
+}
+.wrapper .main .aside.right .listGroup .green {
   color: green;
 }
 #editor—wrapper {
