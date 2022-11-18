@@ -157,6 +157,11 @@
   background: #f5f5f5;
   padding-left: 10px;
 }
+.wrapper .main .aside.left .content .chat {
+  background: black;
+  width: 100px;
+  height: 200px;
+}
 .wrapper .main .aside.left .content .item {
   padding: 20px 0;
   display: flex;
