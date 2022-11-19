@@ -83,9 +83,8 @@
                 // justify-content: flex-end;
                 .chat{
                     width: 100%;
-                    height: 80%;
-                    overflow: scroll;
-                    overflow-x: hidden;
+                overflow: scroll;
+
                     // height: 80%;
                     // height: 10rem;
                     // background: black;
@@ -191,7 +190,7 @@
                 }
                 .HotIssues{
                     width: 100%;
-                    height: 20%;
+                    // height: 20%;
                     // background: red;
                     padding: 5px 0px;
                     z-index: 1000;
@@ -247,20 +246,21 @@
                     font-size: .9rem;
                 }
                 .btns{
-                    display: inline-block;
+                    display: inline-block ;
                     background: white;
-                    display: flex;
-                    width: 70%;
-                    justify-content: space-around;
-                    .buttonBox{
-                        border: 1px solid gray;
-                        color: #54c267;
-                        width: 25%;
-                        background: white;
-                        padding: 2% 1%;
-                        cursor: pointer;
-                        i{
-                            color: rgb(248, 89, 31);
+                    .button{
+                        color: #41864a;
+                        border: 1px solid black;
+                        border-radius: 2px;
+                        padding: 5px;
+                        // width: 1rem;
+                        // height: 2rem;
+                        .msg{
+                            margin-right: 0;
+                        }
+                        .switch,.default{
+                            margin-left: 0;
+                            margin-right: 0;
                         }
                     }
                 }
