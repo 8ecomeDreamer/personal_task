@@ -1,0 +1,219 @@
+@import url('../../assets/css/reset.less');
+
+.wrapper {
+    width: 90vw;
+    height: 90vh;
+    padding: 1%;
+    // background: yellowgreen;
+    margin: 0 auto;
+    margin-top: 5vh;
+    text-align: center;
+    display: grid;
+    grid-template-rows: repeat(10,1fr);
+    grid-template-columns:  repeat(5,1fr);
+    grid-row-gap: 10px;
+    .gray{
+        background: rgba(170, 153, 153,.3);
+    }
+    .header,.nav, .content, .footer{
+        // width: 100%;
+        
+    }
+    .header {
+        grid-area: 1/1/3/6;
+        position: relative;
+        background: linear-gradient(45deg, white, #1cbbb4);
+        .info{
+            // background: black;
+            opacity: .5;
+            width: 3%;
+            // height: 50px;
+            position: fixed;
+            right: 1%;
+            top: 1%;
+            color: rgb(7, 1, 0);
+            img{
+                width: 100%;
+                height: 80%;
+                object-fit: contain;
+            }
+            span{
+                font-size: 10px;
+                font-weight: bold;
+            }
+        }
+        .text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-size: 1.6rem;
+            color: #0872b4;
+            animation: shining 5s alternate infinite;
+        }
+    }
+    .nav{
+        grid-area: 3/1/4/6;
+        background: linear-gradient(200deg,#eef1f5,#e6e9fe);
+        .menu{
+            /* 设置列表项标记的类型为空 */
+            list-style: none;
+            /* 弹性布局 */
+            display: flex;
+            /* 水平居中 */
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            .item{
+                /* 相对定位 */
+                position: relative;
+                /* 设置鼠标样式为手 */
+                cursor: pointer;
+                /* 设置内边距 */
+                padding: 0 10px;
+                width: 20%;
+                height: 100%;
+                line-height: 3;
+                /* 延迟 */
+                transition: all 0.4s ease;
+                .link{
+                    /* block将此元素设置为块级元素 */
+                    display: block;
+                    /* 相对定位 */
+                    position: relative;
+                    width: 100%;
+                    // height: 100%;
+                    // height: 100px;
+                    color: black;
+                    /* 取消a标签下划线 */
+                    text-decoration: none;
+                    /* 溢出隐藏 */
+                    overflow: hidden;
+                    /* 延迟 */
+                    transition: all 0.4s ease;
+                    &:hover{
+                        background-color: #a38bdb;
+                    }
+                    &:hover .dropdown-content{
+                        // display: block;
+                    }
+                    // .dropdown-content {
+                    //     display: none;
+                    //     position: absolute;
+                    //     background-color: #f9f9f9;
+                    //     min-width: 160px;
+                    //     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    // }
+    
+                   
+                }  
+                &:hover .xiala {
+                    display: block;
+                }
+  
+            }
+            .xiala{
+                display: none;
+                position: absolute;
+                width: 92%;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 100;
+                a {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    &:hover {
+                        background-color: #f1f1f1;
+                    }                
+                }
+            }
+        }
+    }
+    .content{
+        // display: grid;
+        grid-area: 4/1/9/6;
+        display: grid;
+        grid-template-rows: repeat(4,1fr);
+        grid-template-columns: repeat(5,1fr);
+        grid-column-gap: 10px;
+        .aside.left{
+            grid-area: 1/1/5/2;
+            overflow: hidden;
+            .ul{
+                .li{
+                    .link {
+                        cursor: pointer;
+                        display: block;
+                        padding: 15px 15px 15px 42px;
+                        color: black;
+                        font-size: 14px;
+                        font-weight: 700;
+                        border-bottom: 1px solid #CCC;
+                        position: relative;
+                        -webkit-transition: all 0.4s ease;
+                        -o-transition: all 0.4s ease;
+                        transition: all 0.4s ease;
+                        
+                    }
+                    .link:hover {
+                        background: black;
+                    }
+                    .link.basic{
+                        background: #ecc1c1;
+                    }
+                    .link.advanced{
+                        background: #ebe5b2;
+                    }
+                    .link.reAdvanced{
+                        background: #7de9d7;
+                    }
+
+                    .submenu {
+                        display: none;
+                        background: white;
+                        padding: 4px;
+                        font-size: 20px;
+                        li{
+                            margin-bottom: 10px;
+                            &:hover {
+                                background: #b63b4d;
+                                a{
+                                    &:hover{
+                                        color: #FFF;
+                                    }
+                                }
+                            }
+                        }
+    
+                    }
+                    
+                    &:hover .submenu{
+                        display: block;
+                    }
+                } 
+            }
+        }
+        .main{
+            grid-area: 1/2/5/5;
+        }
+        .aside.right{
+            grid-area: 1/5/5/6;
+        }
+    }
+    .footer{
+        grid-area: 9/1/11/6;
+    }
+}
+
+@-webkit-keyframes shining {
+    from {
+        text-shadow: 0 0 10px lightblue, 0 0 20px lightblue, 0 0 30px lightblue, 0 0 40px skyblue, 0 0 50px skyblue, 0 0 60px skyblue;
+    }
+
+    to {
+        text-shadow: 0 0 5px rgb(25, 176, 226), 0 0 10px rgb(25, 176, 226), 0 0 15px rgb(25, 176, 226), 0 0 20px rgb(25, 176, 226), 0 0 25px skyblue, 0 0 30px rgb(25, 176, 226);
+    }
+}
