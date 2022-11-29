@@ -339,8 +339,9 @@ html {
 }
 .wrapper .content .aside.left .ul .li .submenu li:hover {
   background: #b63b4d;
+  cursor: pointer;
 }
-.wrapper .content .aside.left .ul .li .submenu li:hover a:hover {
+.wrapper .content .aside.left .ul .li .submenu li:hover a {
   color: black;
   font-size: 25px;
   font-weight: bold;
