@@ -124,11 +124,11 @@
                 </div>
             </aside>
         </content>
-        <footer class="footer gray ">
-            <div class="gradient-border" id="box">
-                <span style="color: red;">HTML</span>
-                <span style="color: yellow;">CSS</span><br>
-            </div>
+        <footer class="footer gray">
+            <span style="color: red;">HTML</span>
+            <span style="color: yellow;">CSS</span>
+            <!-- <span></span>
+            <span></span> -->
 
         </footer>
     </div>
@@ -162,7 +162,6 @@
         HTML:'基础中的基础，真的别忽视',
         CSS:'别人说简单，但我觉得好难',
         Javascript:'这个是真难',
-        JQuery:'逐渐淘汰了',
         Vue:'最流行的框架',
         React:'国外最流行的框架',
         Angular:'国外流行 国内冷门'
@@ -183,14 +182,10 @@
         }
         for (const key in textMap2) {
             if (key === $('.a').eq(no).text()) {
-                text2 = textMap2[key]
+                text2 = textMap[key]
                 break;
-
             }
         }
-        console.log(text)
-        console.log(text2)
-
         // return 
         //  创建节点
         const p = $('<p>');
