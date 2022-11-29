@@ -48,7 +48,7 @@
                 <div class="header">
                     <span>对话列表</span>
                     <div class="btns">
-                        <div class="buttonBox">消息</div>
+                        <div class="buttonBox" onclick="loadQuestion()">消息</div>
                         <div class="buttonBox">接入</div>
                         <div class="buttonBox">默认</div>
                         <div class="buttonBox"><i class="iconfont icon-shanchu"></i></div>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="content">
                     <div class="chat">
-                        <div class="right">
+                        <!-- <div class="right">
                             <div class="chatBoxContent">
                                 <div class="details">
                                     <span class="date">2022-06-15</span>
@@ -232,7 +232,7 @@
                                 </div>
                                 <div class="sendContent">天气阴转多云，下午有暴风雨</div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="HotIssues">
                         <span class="questionTitle">热点问题:</span>
@@ -374,7 +374,24 @@
         console.log(toolbar.getConfig().toolbarKeys)
     }
 
+    function loadQuestion() {
+        const param = {
+            type:'djl',
+            bh:'bh',
+            // val:
+        }
+        $.ajax({
+            url: 'http://118.190.41.230:84/ashx/GDCL.ashx',//请求的地址
+            type: 'get',//请求的方式
+            data: '',//携带到后端的参数
+            dataType: 'json',//期望后端返回的数据类型
+            success: function (res) {
+                console.log(res);
+            },//成功的回调函数 res就是后端响应回来的数据
 
+        })
+
+    }
     // 调用
     loadWangEditor()
 

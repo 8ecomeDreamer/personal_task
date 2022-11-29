@@ -295,6 +295,7 @@ html {
 .wrapper .content .aside.left {
   grid-area: 1/1/5/2;
   overflow: hidden;
+  background: transparent;
 }
 .wrapper .content .aside.left .ul .li .link {
   cursor: pointer;
@@ -334,7 +335,9 @@ html {
   background: #b63b4d;
 }
 .wrapper .content .aside.left .ul .li .submenu li:hover a:hover {
-  color: #FFF;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
 }
 .wrapper .content .aside.left .ul .li:hover .submenu {
   display: block;
