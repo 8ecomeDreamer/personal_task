@@ -377,7 +377,6 @@
         // console.log(toolbar.getConfig().toolbarKeys)
     }
 
-    // 获取问题
     function loadQuestion() {
         const param = {
             type:'djl',
@@ -397,17 +396,15 @@
 
     }
 
-    // 发送内容
     function send(){
         console.log(sentContent)
         //  更改格式
-        // const html = sentContent.split(/\n/).map(line => `<p>${line}</p>`).join('\n')
-        // console.log(html)
+        const html = text.split(/\n/).map(line => `<p>${line}</p>`).join('\n')
         // 2. 设置 html
-    //    const editor = createEditor({
-    //         html,
-    //         // 其他属性...
-    //     }) 
+        const editor = createEditor({
+            html,
+        // 其他属性...
+        })
         // 3. 或，在创建完 editor 之后执行 setHtml
         // editor.setHtml(html)
     }

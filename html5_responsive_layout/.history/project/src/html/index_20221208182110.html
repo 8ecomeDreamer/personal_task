@@ -257,7 +257,7 @@
                     </div>
 
                     <div class="controller">
-                        <div class="btn" id="sendMsg" onclick="send()">发送</div>
+                        <div class="btn" id="sendMsg">发送</div>
                         <i class="iconfont icon-xiangxia"></i>
                     </div>
                 </div>
@@ -323,18 +323,16 @@
 <script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
 <script>
     // 声明
-    let sentContent = null
-    // const sendMsg = document.getElementById('sendMsg')
+    const sendMsg = document.getElementById('sendMsg')
     function loadWangEditor() {
         const { createEditor, createToolbar } = window.wangEditor
 
         const editorConfig = {
             placeholder: 'Type here...',
             onChange(editor) {
-                // const html = editor.getHtml()
-                // console.log('editor content', html)
+                const html = editor.getHtml()
+                console.log('editor content', html)
                 // 也可以同步到 <textarea>
-                sentContent = editor.getHtml()
             }
         }
 
@@ -374,10 +372,9 @@
             mode: 'default', // or 'simple'
         })
 
-        // console.log(toolbar.getConfig().toolbarKeys)
+        console.log(toolbar.getConfig().toolbarKeys)
     }
 
-    // 获取问题
     function loadQuestion() {
         const param = {
             type:'djl',
@@ -390,31 +387,17 @@
             data: '',//携带到后端的参数
             dataType: 'json',//期望后端返回的数据类型
             success: function (res) {
-                // console.log(res);
+                console.log(res);
             },//成功的回调函数 res就是后端响应回来的数据
 
         })
 
     }
 
-    // 发送内容
     function send(){
-        console.log(sentContent)
-        //  更改格式
-        // const html = sentContent.split(/\n/).map(line => `<p>${line}</p>`).join('\n')
-        // console.log(html)
-        // 2. 设置 html
-    //    const editor = createEditor({
-    //         html,
-    //         // 其他属性...
-    //     }) 
-        // 3. 或，在创建完 editor 之后执行 setHtml
-        // editor.setHtml(html)
+
     }
     // 调用
     loadWangEditor()
-
-    // sendMsg.addEventListener('click',send(),false)
-
 
 </script>

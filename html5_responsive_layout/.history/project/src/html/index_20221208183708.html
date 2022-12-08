@@ -323,7 +323,7 @@
 <script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
 <script>
     // 声明
-    let sentContent = null
+    const sentContent = null
     // const sendMsg = document.getElementById('sendMsg')
     function loadWangEditor() {
         const { createEditor, createToolbar } = window.wangEditor
@@ -331,7 +331,7 @@
         const editorConfig = {
             placeholder: 'Type here...',
             onChange(editor) {
-                // const html = editor.getHtml()
+                const html = editor.getHtml()
                 // console.log('editor content', html)
                 // 也可以同步到 <textarea>
                 sentContent = editor.getHtml()
@@ -377,7 +377,6 @@
         // console.log(toolbar.getConfig().toolbarKeys)
     }
 
-    // 获取问题
     function loadQuestion() {
         const param = {
             type:'djl',
@@ -397,19 +396,8 @@
 
     }
 
-    // 发送内容
     function send(){
-        console.log(sentContent)
-        //  更改格式
-        // const html = sentContent.split(/\n/).map(line => `<p>${line}</p>`).join('\n')
-        // console.log(html)
-        // 2. 设置 html
-    //    const editor = createEditor({
-    //         html,
-    //         // 其他属性...
-    //     }) 
-        // 3. 或，在创建完 editor 之后执行 setHtml
-        // editor.setHtml(html)
+        console.log(1)
     }
     // 调用
     loadWangEditor()
