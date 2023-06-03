@@ -20,7 +20,7 @@ const Header = () => {
   }, []);
 
   // 观察用户是否登录
-  const ifLogin = true;
+  const ifLogin = false;
   // 跳转
   const navigate = useNavigate();
   const skipPage = () => {

@@ -193,3 +193,6 @@ export const footerContacts = [
   },
 ];
 export const explores = ["@2023 MindShow.fun", "用户协议", "隐私协议"];
+
+
+

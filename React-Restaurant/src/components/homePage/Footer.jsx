@@ -1,8 +1,7 @@
 import React from "react";
 // import { footerSocials } from "../Data";
 // import { mainMenu } from "../Data";
-import { explores } from "@/Data";
-import { footerContacts } from "@/Data";
+import { explores, footerContacts } from "@/Data";
 // import { payements } from "../Data";
 
 const Footer = () => {
@@ -68,8 +67,8 @@ const Footer = () => {
       </div>
       <div className="flex flex-wrap justify-between gap-4 pb-8">
         <div className="">
-          <span className="font-bold">上海所思所见科技有限公司</span>&nbsp;&nbsp;
-           企业介绍&nbsp;&nbsp;CP备2022003422号-1
+          <span className="font-bold">上海所思所见科技有限公司</span>
+          &nbsp;&nbsp; 企业介绍&nbsp;&nbsp;CP备2022003422号-1
         </div>
         {/* <div className="flex gap-2">
           {payements.map((payment, index) => {
