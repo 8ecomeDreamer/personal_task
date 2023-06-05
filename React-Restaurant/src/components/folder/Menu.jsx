@@ -56,16 +56,25 @@ const responsiveMenu = () => {
   const changeTheme = (value) => {
     setTheme(value ? "dark" : "light");
   };
+  // 定义菜单跳转的实际路由/页面
   const switchPath = (path) => {
     switch (path) {
       case "1":
         return "/home";
       case "2":
-        return "/home2";
+        return "/import";
       case "3":
-        return "/home3";
+        return "/slides";
+      case "4":
+        return "/trash";
+      case "5":
+        return "/customized";
+      case "6":
+        return "/setting";
+      case "7":
+        return "/invite";
       default:
-        return "/home";
+        return path;
     }
   };
   const onClick = (e) => {
