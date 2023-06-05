@@ -75,12 +75,9 @@ const responsiveMenu = () => {
         navigate("/folder/trash");
         break;
       case "5":
-        navigate("/folder/customized");
-        break;
-      case "6":
         navigate("/folder/setting");
         break;
-      case "7":
+      case "6":
         navigate("/folder/invite");
         break;
       default:

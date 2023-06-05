@@ -8,7 +8,6 @@ import FolderHome from "@/components/folder/sub/folderHome.jsx";
 import FolderImport from "@/components/folder/sub/FolderImport.jsx";
 import FolderSlides from "@/components/folder/sub/FolderSlides.jsx";
 import FolderTrash from "@/components/folder/sub/FolderTrash.jsx";
-import FolderCustomized from "@/components/folder/sub/FolderCustomized.jsx";
 import FolderSetting from "@/components/folder/sub/FolderSetting.jsx";
 import FolderInvite from "@/components/folder/sub/FolderInvite.jsx";
 
@@ -23,7 +22,6 @@ const App = () => {
           <Route path="/folder/import" element={<FolderImport />} />
           <Route path="/folder/slides" element={<FolderSlides />} />
           <Route path="/folder/trash" element={<FolderTrash />} />
-          <Route path="/folder/customized" element={<FolderCustomized />} />
           <Route path="/folder/setting" element={<FolderSetting />} />
           <Route path="/folder/invite" element={<FolderInvite />} />
         </Route>
