@@ -9,6 +9,7 @@ import {
 import { Divider, Menu, Switch } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -56,32 +57,43 @@ const responsiveMenu = () => {
   const changeTheme = (value) => {
     setTheme(value ? "dark" : "light");
   };
+  const navigate = useNavigate();
+  // console.log(navigate);
   // 定义菜单跳转的实际路由/页面
   const switchPath = (path) => {
     switch (path) {
       case "1":
-        return "/home";
+        navigate("/folder/home");
+        break;
       case "2":
-        return "/import";
+        navigate("/folder/import");
+        break;
       case "3":
-        return "/slides";
+        navigate("/folder/slides");
+        break;
       case "4":
-        return "/trash";
+        navigate("/folder/trash");
+        break;
       case "5":
-        return "/customized";
+        navigate("/folder/customized");
+        break;
       case "6":
-        return "/setting";
+        navigate("/folder/setting");
+        break;
       case "7":
-        return "/invite";
+        navigate("/folder/invite");
+        break;
       default:
-        return path;
+        navigate(`/folder/${path}`);
+        break;
     }
   };
   const onClick = (e) => {
     // console.log(e);
     const path = e.keyPath[0];
-    const url = `/folder${switchPath(path)}`;
-    console.log(url);
+    // const url = `/folder${switchPath(path)}`;
+    // console.log(url);
+    switchPath(path);
   };
   return (
     <Sider style={{ background: "white" }}>

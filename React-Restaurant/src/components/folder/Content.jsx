@@ -14,11 +14,12 @@ import { Outlet } from "react-router-dom";
 
 const responsiveContent = () => {
   const { Content } = Layout;
-  // 点击li切换背景色并改变下方的content
-  const setActive = (e) => {
-    console.log(e);
-  };
-  return <Content style={{}}>{/* <Outlet></Outlet> */}</Content>;
+
+  return (
+    <Content style={{}}>
+      <Outlet></Outlet>
+    </Content>
+  );
 };
 
 export default responsiveContent;

@@ -24,7 +24,7 @@ const Header = () => {
   // 跳转
   const navigate = useNavigate();
   const skipPage = () => {
-    navigate("/folder");
+    navigate("/folder/home");
   };
 
   return (

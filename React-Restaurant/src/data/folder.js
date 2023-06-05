@@ -141,3 +141,34 @@ export const navList = [
     href: "/help",
   },
 ];
+
+// 回收站
+export const templateTrash = [
+  {
+    id: 1,
+    src: "",
+    title: "xxxx立项报告",
+    date: 3,
+  },
+  {
+    id: 2,
+    src: "",
+    title: "推荐报告",
+    date: 30,
+  },
+];
+// 我的演示
+export const templateSlides = [
+  {
+    id: 1,
+    src: "",
+    title: "xxxx立项报告",
+    date: 3,
+  },
+  {
+    id: 2,
+    src: "",
+    title: "推荐报告",
+    date: 30,
+  },
+];
