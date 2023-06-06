@@ -11,10 +11,8 @@ import FolderSlides from "@/components/folder/sub/FolderSlides.jsx";
 import FolderTrash from "@/components/folder/sub/FolderTrash.jsx";
 import FolderSetting from "@/components/folder/sub/FolderSetting.jsx";
 import FolderInvite from "@/components/folder/sub/FolderInvite.jsx";
-
 import PPtTemplates from "@/views/pptTemplates";
 import PaidTemplates from "@/views/paidTemplates";
-import OtherInfo from "@/views/otherInfo";
 import Help from "@/views/help";
 
 const App = () => {
@@ -33,7 +31,6 @@ const App = () => {
         </Route>
         <Route path="/templates" element={<PPtTemplates />} />
         <Route path="/paidtemplates" element={<PaidTemplates />} />
-        <Route path="/otherinfo" element={<OtherInfo />} />
         <Route path="/help" element={<Help />} />
         <Route path="/login" element={<Login />} />
         {/* 若有其他路径 跳至notfound */}
