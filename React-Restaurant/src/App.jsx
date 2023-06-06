@@ -4,12 +4,18 @@ import HomePage from "@/views/homePage";
 import Folder from "@/views/folder";
 import Login from "@/views/login";
 import NotFound from "@/views/notFound";
+// folder子页面
 import FolderHome from "@/components/folder/sub/folderHome.jsx";
 import FolderImport from "@/components/folder/sub/FolderImport.jsx";
 import FolderSlides from "@/components/folder/sub/FolderSlides.jsx";
 import FolderTrash from "@/components/folder/sub/FolderTrash.jsx";
 import FolderSetting from "@/components/folder/sub/FolderSetting.jsx";
 import FolderInvite from "@/components/folder/sub/FolderInvite.jsx";
+
+import PPtTemplates from "@/views/pptTemplates";
+import PaidTemplates from "@/views/paidTemplates";
+import OtherInfo from "@/views/otherInfo";
+import Help from "@/views/help";
 
 const App = () => {
   return (
@@ -25,7 +31,12 @@ const App = () => {
           <Route path="/folder/setting" element={<FolderSetting />} />
           <Route path="/folder/invite" element={<FolderInvite />} />
         </Route>
+        <Route path="/templates" element={<PPtTemplates />} />
+        <Route path="/paidtemplates" element={<PaidTemplates />} />
+        <Route path="/otherinfo" element={<OtherInfo />} />
+        <Route path="/help" element={<Help />} />
         <Route path="/login" element={<Login />} />
+        {/* 若有其他路径 跳至notfound */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

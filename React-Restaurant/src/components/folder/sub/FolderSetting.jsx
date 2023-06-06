@@ -1,4 +1,13 @@
-import { Avatar, Button, Dropdown, Modal, Radio } from "antd";
+import {
+  Avatar,
+  Button,
+  Dropdown,
+  Modal,
+  Radio,
+  Checkbox,
+  Form,
+  Input,
+} from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
@@ -29,18 +38,41 @@ const menuProps = {
 
 const FolderSetting = () => {
   const [open, setOpen] = useState(false);
+  const [openPass, setOpenPass] = useState(false);
   const showModal = () => {
     setOpen(true);
+  };
+  const showPassModal = () => {
+    setOpenPass(true);
   };
 
   const hideModal = () => {
     setOpen(false);
+  };
+  const hidePassModal = () => {
+    setOpenPass(false);
+  };
+  const handleOk = (e) => {
+    // console.log(e);
+    setOpenPass(false);
+  };
+  const handleCancel = (e) => {
+    // console.log(e);
+    setOpenPass(false);
   };
 
   const [value, setValue] = useState(1);
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
     setValue(e.target.value);
+  };
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -55,7 +87,7 @@ const FolderSetting = () => {
           />
         </div>
         <Button onClick={showModal}>立即升级</Button>
-        {/* modal框 */}
+        {/* 升级modal框 */}
         <Modal
           open={open}
           onOk={hideModal}
@@ -115,8 +147,51 @@ const FolderSetting = () => {
         <h3 className="text-2xl text-gray-600 font-bold mb-4">修改登录密码</h3>
         <h4 className="mb-2 text-gray-600">修改登录密码，需要输入旧密码</h4>
         <div className="mb-4">
-          <Button>修改密码</Button>
+          <Button onClick={showPassModal}>修改密码</Button>
         </div>
+        {/* 修改密码modal框 */}
+        <Modal
+          title="修改密码"
+          // title="Basic Modal"
+          open={openPass}
+          // onOk={handleOk}
+          // onCancel={handleCancel}
+          width={1000}
+          footer={[
+            // 定义右下角 按钮的地方 可根据需要使用 一个或者 2个按钮
+            <Button key="back" onClick={handleCancel}>
+              取消
+            </Button>,
+            <Button
+              key="submit"
+              type="primary"
+              style={{ background: "blue" }}
+              onClick={handleOk}
+            >
+              确定
+            </Button>,
+          ]}
+        >
+          {/* onFinish={onFinish} */}
+          {/* onFinishFailed={onFinishFailed} */}
+          <Form
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            style={{ maxWidth: 600 }}
+            initialValues={{ remember: true }}
+            autoComplete="off"
+          >
+            <Form.Item label="旧密码">
+              <Input.Password />
+            </Form.Item>
+            <Form.Item label="新密码">
+              <Input.Password />
+            </Form.Item>
+            <Form.Item label="再次输入">
+              <Input.Password />
+            </Form.Item>
+          </Form>
+        </Modal>
         <hr />
       </div>
       <Button>退出</Button>
