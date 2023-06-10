@@ -1,4 +1,4 @@
-import { templateTrash } from "@/data/folder.js";
+import { templateTrash } from "@/data/folder.jsx";
 
 const FolderTrash = () => {
   return (

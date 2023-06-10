@@ -131,12 +131,6 @@ export const navList = [
   {
     id: 4,
     icon: "EnterOutlined",
-    label: "其他信息",
-    href: "/otherinfo",
-  },
-  {
-    id: 5,
-    icon: "EnterOutlined",
     label: "帮助",
     href: "/help",
   },

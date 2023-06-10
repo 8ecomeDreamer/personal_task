@@ -1,6 +1,6 @@
 import { Layout, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { navList } from "@/data/folder.js";
+import { navList } from "@/data/folder.jsx";
 import { useState } from "react";
 const { Header } = Layout;
 // const {

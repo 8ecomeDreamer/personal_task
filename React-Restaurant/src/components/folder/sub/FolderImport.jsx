@@ -1,6 +1,6 @@
 import { Button, Input } from "antd";
 const { TextArea } = Input;
-import { templateImport } from "@/data/folder.js";
+import { templateImport } from "@/data/folder.jsx";
 import img from "@/assets/recipe5.jpg";
 import { useState } from "react";
 

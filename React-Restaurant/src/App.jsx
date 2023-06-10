@@ -12,6 +12,7 @@ import FolderTrash from "@/components/folder/sub/FolderTrash.jsx";
 import FolderSetting from "@/components/folder/sub/FolderSetting.jsx";
 import FolderInvite from "@/components/folder/sub/FolderInvite.jsx";
 import PPtTemplates from "@/views/pptTemplates";
+import PPtEdit from "@/views/pptEdit";
 import PaidTemplates from "@/views/paidTemplates";
 import Help from "@/views/help";
 
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/paidtemplates" element={<PaidTemplates />} />
         <Route path="/help" element={<Help />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/edit/?:templateld" element={<PPtEdit />}></Route>
         {/* 若有其他路径 跳至notfound */}
         <Route path="*" element={<NotFound />} />
       </Routes>

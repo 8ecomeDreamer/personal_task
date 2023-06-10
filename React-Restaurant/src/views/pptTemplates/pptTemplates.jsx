@@ -1,8 +1,8 @@
 import Header from "@/components/folder/Header";
 import Footer from "@/components/homePage/Footer";
 import { selector, newTemplate, hotTemplate } from "@/data/pptTemplates";
-import { Input } from "antd";
 import { Select } from "antd";
+import { Input } from "antd";
 import { useState } from "react";
 import src from "@/assets/about.png";
 
@@ -88,6 +88,7 @@ const PPtTemplates = () => {
           })}
         </div>
       </div>
+      <div className="w-10/12"></div>
       <Footer></Footer>
     </div>
   );

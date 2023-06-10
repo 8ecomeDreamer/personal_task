@@ -6,7 +6,7 @@ import {
   LinkOutlined,
   LeftSquareOutlined,
 } from "@ant-design/icons";
-import { speechList, docList } from "@/data/folder.js";
+import { speechList, docList } from "@/data/folder.jsx";
 
 const FolderHome = () => {
   // 点击li切换背景色并改变下方的content

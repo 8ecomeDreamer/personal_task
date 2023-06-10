@@ -1,5 +1,5 @@
 import React from "react";
-import { mainContactMenu } from "@/Data";
+import { mainContactMenu } from "@/data/homePage.jsx";
 
 const Contact = () => {
   return (
@@ -27,10 +27,10 @@ const Contact = () => {
               );
             })}
           </div>
-          <p className="font-semibold text-[1rem] mb-10 text-black ">
-            或者
-          </p>
-          <button className="bg-fuchsia-700 hover:bg-fuchsia-600 rounded-3xl px-10 py-4 text-white">导入创建</button>
+          <p className="font-semibold text-[1rem] mb-10 text-black ">或者</p>
+          <button className="bg-fuchsia-700 hover:bg-fuchsia-600 rounded-3xl px-10 py-4 text-white">
+            导入创建
+          </button>
         </div>
 
         {/* <div className="">

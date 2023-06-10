@@ -1,4 +1,4 @@
-import { templateSlides } from "@/data/folder.js";
+import { templateSlides } from "@/data/folder.jsx";
 
 const FolderSlides = () => {
   return (

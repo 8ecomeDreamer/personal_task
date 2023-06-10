@@ -9,7 +9,8 @@ import {
   Input,
 } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import PayLoad from "@/components/common/payModal";
 
 const handleButtonClick = (e) => {
   message.info("Click on left button.");
@@ -37,43 +38,47 @@ const menuProps = {
 };
 
 const FolderSetting = () => {
-  const [open, setOpen] = useState(false);
-  const [openPass, setOpenPass] = useState(false);
-  const showModal = () => {
-    setOpen(true);
-  };
+  // 升级modal框;
+  const [PayModal, setPayModal] = useState(false);
+
+  function showPayModal() {
+    setPayModal(true);
+  }
+
+  function hidePayModal() {
+    setPayModal(false);
+  }
+
+  const [passModal, setPassModal] = useState(false);
+
+  // const payModalRef = useRef(null);
+  // const showPayModal = () => {
+  //   setPayModal(true);
+  // };
+
   const showPassModal = () => {
-    setOpenPass(true);
+    setPassModal(true);
   };
 
-  const hideModal = () => {
-    setOpen(false);
-  };
   const hidePassModal = () => {
     setOpenPass(false);
   };
   const handleOk = (e) => {
     // console.log(e);
-    setOpenPass(false);
+    setPassModal(false);
   };
   const handleCancel = (e) => {
     // console.log(e);
-    setOpenPass(false);
+    setPassModal(false);
   };
 
-  const [value, setValue] = useState(1);
-  const onChange = (e) => {
-    console.log("radio checked", e.target.value);
-    setValue(e.target.value);
-  };
+  // const onFinish = (values) => {
+  //   console.log("Success:", values);
+  // };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinishFailed = (errorInfo) => {
+  //   console.log("Failed:", errorInfo);
+  // };
 
   return (
     <div className="w-full h-screen">
@@ -86,52 +91,10 @@ const FolderSetting = () => {
             className="bg-purple-600 cursor-pointer"
           />
         </div>
-        <Button onClick={showModal}>立即升级</Button>
+        <Button onClick={showPayModal}>立即升级</Button>
         {/* 升级modal框 */}
-        <Modal
-          open={open}
-          onOk={hideModal}
-          onCancel={hideModal}
-          footer={[]}
-          width={1000}
-        >
-          <div className="w-full h-[28rem] flex justify-center items-center py-8">
-            <div className="w-3/12 h-full mr-2 px-4 py-4 rounded text-white bg-[rgb(31,41,55)]">
-              <h3 className="mb-2">开通高级会员可享受特权:</h3>
-              <li>V+模板、布局尽情享用</li>
-              <li>100M升级到1G的云空间</li>
-              <li>导出格式更加丰富</li>
-              <li>个人商业使用授权</li>
-            </div>
-            <div className="flex-1 h-full px-4">
-              <h3 className="font-bold text-xl text-gray-500  mb-2">
-                选择你的方案
-              </h3>
-              <div className="w-full py-4 flex gap-4">
-                <div className="border rounded w-3/12 py-4 text-center active:border-[rgb(218,112,214)]">
-                  <h5>高级账户-单月</h5>
-                  <p>19CNY</p>
-                  <p className="line-through">29CNY</p>
-                </div>
-                <div className="border rounded w-3/12 py-4 text-center active:border-[rgb(218,112,214)]">
-                  <h5>高级账户-单年</h5>
-                  <p>99CNY</p>
-                  <p className="line-through ">300CNY</p>
-                </div>
-              </div>
-              <section className="w-full border rounded py-4 px-4">
-                <h5 className="mb-4">支付方式</h5>
-                <div className="mb-8">
-                  <Radio.Group onChange={onChange} value={value}>
-                    <Radio value={1}>微信支付</Radio>
-                    <Radio value={2}>支付宝支付</Radio>
-                  </Radio.Group>
-                </div>
-                <Button className="mb-10">去支付</Button>
-              </section>
-            </div>
-          </div>
-        </Modal>
+        {PayModal && <PayModal></PayModal>}
+        {/* {PayModal ? <PayModal ref={payModalRef}></PayModal> : null} */}
       </div>
       <div className="mb-4">
         <h3 className="text-2xl text-gray-600 font-bold mb-4">语言</h3>
@@ -153,7 +116,7 @@ const FolderSetting = () => {
         <Modal
           title="修改密码"
           // title="Basic Modal"
-          open={openPass}
+          open={passModal}
           // onOk={handleOk}
           // onCancel={handleCancel}
           width={1000}

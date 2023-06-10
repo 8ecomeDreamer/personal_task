@@ -8,7 +8,7 @@ import {
 } from "@ant-design/icons";
 
 import { Layout } from "antd";
-import { speechList, docList } from "@/data/folder";
+import { speechList, docList } from "@/data/folder.jsx";
 import { PlayCircleFilled } from "@ant-design/icons";
 import { Outlet } from "react-router-dom";
 
