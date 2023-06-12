@@ -63,7 +63,7 @@ const PPtTemplates = () => {
         <div className="w-full flex flex-wrap justify-between gap-2 text-center">
           {newTemplate.map((item, index) => {
             return (
-              <div className="w-3/12 m-auto mb-8" key={index}>
+              <div className="w-3/12 m-auto mb-8 cursor-pointer" key={index}>
                 <div className="w-full">
                   <img src={src}></img>
                 </div>
@@ -78,7 +78,7 @@ const PPtTemplates = () => {
         <div className="w-full flex flex-wrap justify-between gap-2 text-center">
           {hotTemplate.map((item, index) => {
             return (
-              <div className="w-3/12 m-auto mb-8" key={index}>
+              <div className="w-3/12 m-auto mb-8 cursor-pointer" key={index}>
                 <div className="w-full">
                   <img src={src}></img>
                 </div>

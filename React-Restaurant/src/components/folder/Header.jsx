@@ -1,15 +1,58 @@
-import { Layout, Avatar } from "antd";
+import { Layout, Avatar, Dropdown } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { navList } from "@/data/folder.jsx";
 import { useState } from "react";
 const { Header } = Layout;
+// 跳转
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 // const {
 //   token: { colorBgContainer },
 // } = theme.useToken();
+const loginedDropDown = [
+  {
+    key: "账户设置",
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="/folder/setting">
+        账户设置
+      </a>
+    ),
+  },
+  {
+    key: "邀请推荐",
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="/folder/invite">
+        邀请推荐
+      </a>
+    ),
+    // icon: <SmileOutlined />,
+    disabled: true,
+  },
+  {
+    key: "退出",
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="/login">
+        退出
+      </a>
+    ),
+    disabled: true,
+  },
+];
 
 const responsiveHeader = () => {
   // 观察用户是否登录
-  const ifLogin = useState(false);
+  const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  // console.log(isAuthenticated);
+
+  // 跳转
+  const navigate = useNavigate();
+  const skipPage = () => {
+    // 判断是否登录后跳转
+    if (isAuthenticated) {
+      navigate("/folder/home");
+    }
+    navigate("/login");
+  };
 
   return (
     <div>
@@ -22,7 +65,9 @@ const responsiveHeader = () => {
       >
         <div className="w-full flex px-10">
           <div className="mr-16">
-            <span className="text-[0.65rem] font-bold opacity-70">Logo</span>
+            <a className="text-[0.65rem] font-bold opacity-70" href="/">
+              Logo
+            </a>
           </div>
           <ul className="flex gap-4 flex-1 ">
             {navList.map((item) => {
@@ -35,23 +80,26 @@ const responsiveHeader = () => {
           </ul>
           <div className="flex justify-center items-center">
             {/* 登录前为按钮 登录后为icon */}
-            {ifLogin ? (
-              <Avatar
-                size={{ xs: 25, sm: 25, md: 35, lg: 35, xl: 40, xxl: 40 }}
-                icon={<UserOutlined />}
-                className="bg-purple-600 cursor-pointer"
-              />
-            ) : (
-              <div>
-                <button>注册</button>
-                <button
-                  className="bg-fuchsia-700 text-white rounded px-6 py-1 ml-4  hover:bg-fuchsia-600"
-                  onClick={skipPage}
-                >
-                  登录
-                </button>
-              </div>
-            )}
+            {isAuthenticated === true
+              ? // <Dropdown
+                //   menu={{
+                //     loginedDropDown,
+                //   }}
+                // >
+                //   <Avatar
+                //     size={{ xs: 25, sm: 25, md: 35, lg: 35, xl: 40, xxl: 40 }}
+                //     icon={<UserOutlined />}
+                //     className="bg-purple-600 cursor-pointer"
+                //   />
+                // </Dropdown>
+                1
+              : // <div className="w-full h-full">
+                //   <button>注册</button>
+                //   <button className="rounded px-6 py-1 ml-4" onClick={skipPage}>
+                //     登录
+                //   </button>
+                // </div>
+                2}
           </div>
         </div>
       </Header>

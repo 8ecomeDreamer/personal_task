@@ -15,6 +15,8 @@ import PPtTemplates from "@/views/pptTemplates";
 import PPtEdit from "@/views/pptEdit";
 import PaidTemplates from "@/views/paidTemplates";
 import Help from "@/views/help";
+import HelpDetail from "@/views/helpDetail";
+// import PPtDetail from "@/views/pptDetail";
 
 const App = () => {
   return (
@@ -33,6 +35,8 @@ const App = () => {
         <Route path="/templates" element={<PPtTemplates />} />
         <Route path="/paidtemplates" element={<PaidTemplates />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/helpDetail" element={<HelpDetail />} />
+        {/* <Route path="/pptDetail" element={<PPtDetail />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/edit/?:templateld" element={<PPtEdit />}></Route>
         {/* 若有其他路径 跳至notfound */}

@@ -1,11 +1,8 @@
 import Contact from "@/components/homePage/Contact";
-import Header from "@/components/homePage/Header";
+// import Header from "@/components/homePage/Header";
+import Header from "@/components/folder/Header";
 import Content from "@/components/homePage/Content";
 import Footer from "@/components/homePage/Footer";
-// import Home from "../components/homePage/Home";
-// import About from "../components/homePage/About";
-// import NavIcon from "../components/homePage/NavIcon";
-// import Recipe from "../components/homePage/Recipe";
 
 const HomePage = () => {
   return (
@@ -14,10 +11,6 @@ const HomePage = () => {
       <Contact />
       <Content />
       <Footer />
-      {/* <NavIcon /> */}
-      {/* <Home /> */}
-      {/* <About /> */}
-      {/* <Recipe /> */}
     </div>
   );
 };

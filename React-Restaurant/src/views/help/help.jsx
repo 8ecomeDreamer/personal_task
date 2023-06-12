@@ -3,7 +3,14 @@ import Footer from "@/components/homePage/Footer";
 import { questions } from "@/data/help.jsx";
 
 import { Input } from "antd";
+import { useNavigate } from "react-router-dom";
 const Help = () => {
+  const navigate = useNavigate();
+
+  const skipPage = () => {
+    navigate("/helpDetail");
+  };
+
   return (
     <div>
       <Header></Header>
@@ -37,6 +44,7 @@ const Help = () => {
                     <li
                       key={idx}
                       className="list-disc cursor-pointer hover:underline "
+                      onClick={skipPage}
                     >
                       {el.content}
                     </li>

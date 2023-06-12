@@ -105,17 +105,17 @@ export const navList = [
   },
   {
     id: 2,
-    href: "home",
+    href: "templates",
     text: "PPT模版",
   },
   {
     id: 3,
-    href: "home",
+    href: "paidtemplates",
     text: "付费模板",
   },
   {
     id: 4,
-    href: "home",
+    href: "help",
     text: "帮助",
   },
 ];
@@ -125,19 +125,19 @@ export const contentList = [
     id: 1,
     image: recipe1,
     title: "创建简单，后续维护更加简单",
-    p:"不用一页页输入文字，调整字体大小跟位置，只需要在大纲视图修改文字即可对幻灯片内容全部修改"
+    p: "不用一页页输入文字，调整字体大小跟位置，只需要在大纲视图修改文字即可对幻灯片内容全部修改",
   },
   {
     id: 2,
     image: recipe2,
     title: "多种主题跟图示任意切换",
-    p:"上百种各种类型主题一键切换，所有页面颜色及样式立刻改变，每张页面也可以使用不同的图示"
+    p: "上百种各种类型主题一键切换，所有页面颜色及样式立刻改变，每张页面也可以使用不同的图示",
   },
   {
     id: 3,
     image: recipe3,
     title: "支持在线演示，也可导出PDF线下演示",
-    p:"做好幻灯片，一键点击直接演示。如果需要演示的场所网络不好，支持导出PDF进行演示"
+    p: "做好幻灯片，一键点击直接演示。如果需要演示的场所网络不好，支持导出PDF进行演示",
   },
 ];
 // Contact
@@ -193,6 +193,3 @@ export const footerContacts = [
   },
 ];
 export const explores = ["@2023 MindShow.fun", "用户协议", "隐私协议"];
-
-
-
