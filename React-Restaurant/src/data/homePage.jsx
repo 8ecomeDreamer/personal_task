@@ -55,7 +55,7 @@ export const contentList = [
 export const mainContactMenu = [
   {
     id: 1,
-    href: "edit",
+    href: "edit?templateld=1",
     text: "月度/年度总结",
     image: recipe1,
   },

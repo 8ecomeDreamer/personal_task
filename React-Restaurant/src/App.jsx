@@ -38,7 +38,8 @@ const App = () => {
         <Route path="/helpDetail" element={<HelpDetail />} />
         {/* <Route path="/pptDetail" element={<PPtDetail />} /> */}
         <Route path="/login" element={<Login />} />
-        <Route path="/edit/?:templateld" element={<PPtEdit />}></Route>
+        {/* <Route path="/pptedit/?:templateld" element={<PPtEdit />}></Route> */}
+        <Route path="/pptedit" element={<PPtEdit />}></Route>
         {/* 若有其他路径 跳至notfound */}
         <Route path="*" element={<NotFound />} />
       </Routes>
